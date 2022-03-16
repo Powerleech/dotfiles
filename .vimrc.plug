@@ -1,0 +1,39 @@
+" .vimrc.plug
+call plug#begin('~/.vim/plugged')
+
+"lsp plugins
+Plug 'neovim/nvim-lspconfig'
+Plug 'nvim-lua/plenary.nvim'
+Plug 'jose-elias-alvarez/null-ls.nvim'
+Plug 'jose-elias-alvarez/nvim-lsp-ts-utils'
+Plug 'folke/lsp-colors.nvim'
+Plug 'hrsh7th/nvim-cmp'
+Plug 'hrsh7th/cmp-nvim-lsp'
+Plug 'saadparwaiz1/cmp_luasnip'
+Plug 'L3MON4D3/LuaSnip'
+
+" Git
+Plug 'tpope/vim-fugitive'
+
+" Code commenter
+Plug 'preservim/nerdcommenter'
+
+" NERDtree
+Plug 'preservim/nerdtree'
+
+" Statusbar
+Plug 'itchyny/lightline.vim'
+
+" Finder
+Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+Plug 'junegunn/fzf.vim'
+
+" Tabs
+Plug 'ap/vim-buftabline'
+
+"TMux - Vim integration
+Plug 'christoomey/vim-tmux-navigator'
+
+call plug#end()
+
+set background=dark
