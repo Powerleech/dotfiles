@@ -68,7 +68,7 @@ FULL_REPO_NAME="raskraskdk/$REPO_NAME"
         docker rm $(docker ps -a -q --filter ancestor=$FULL_REPO_NAME )
     fi
 
-    [[ $(docker images -q $FULL_REPO_NAME:$VERSION) ]] && docker rmi -f $(docker images -q $FULL_REPO_NAME )
+    [[ $(docker images -q $FULL_REPO_NAME:$VERSION) ]] && docker rmi -f $(docker images -q $FULL_REPO_NAME:$VERSION )
     docker pull $FULL_REPO_NAME:$VERSION
     docker run --env-file envfiles/."${deployName}" -p $EXTERNAL_PORT:3000 --name $REPO_NAME -d $FULL_REPO_NAME:$VERSION
 }
@@ -115,4 +115,5 @@ fi
 create_temp_env
 refresh_docker_container
 docker ps -f name=$REPO_NAME
+sleep 2
 docker logs $REPO_NAME
