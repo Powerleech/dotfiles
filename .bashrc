@@ -4,8 +4,8 @@
 
 # If not running interactively, don't do anything
 [[ $- != *i* ]] && return
-alias config='/usr/bin/git --git-dir=$HOME/.myconf/ --work-tree=$HOME'
-# config config status.showUntrackedFiles no
+alias config='/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME'
+config config status.showUntrackedFiles no
 alias ls='ls --color=auto'
 alias vim='nvim'
 PS1='[\u@\h \W]\$ '
