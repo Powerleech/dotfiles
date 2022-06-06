@@ -1,0 +1,28 @@
+[global_config]
+  title_at_bottom = True
+  title_hide_sizetext = True
+[keybindings]
+[profiles]
+  [[default]]
+    background_darkness = 0.44
+    cursor_color = "#aaaaaa"
+[layouts]
+  [[default]]
+    [[[child0]]]
+      type = Window
+      parent = ""
+      order = 0
+      position = 1163:537
+      maximised = False
+      fullscreen = False
+      size = 656, 453
+      title = powerleech@sousuke:~
+      last_active_term = d5f490f8-aeb3-49d0-a44b-c6a2e9f781f0
+      last_active_window = True
+    [[[terminal1]]]
+      type = Terminal
+      parent = child0
+      order = 0
+      profile = default
+      uuid = d5f490f8-aeb3-49d0-a44b-c6a2e9f781f0
+[plugins]
