@@ -543,6 +543,8 @@ globalkeys = mytable.join(
     awful.key({ modkey }, "x", function () os.execute(string.format("rofi -show combi")) end,
         {description = "show rofi", group = "launcher"}),
 
+    awful.key({ altkey }, "z", function () os.execute(string.format("rofi -modi 'clipboard:greenclip print' -show clipboard -run-command '{cmd'}")) end,
+        {description = "clipboard history", group = "launcher"}),
     -- Prompt
     awful.key({ modkey }, "r", function () awful.screen.focused().mypromptbox:run() end,
               {description = "run prompt", group = "launcher"})
