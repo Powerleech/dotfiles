@@ -1,0 +1,14 @@
+pacman -Qqm lists foreign packages; which, for must users, means AUR
+pacman -Qqe lists packages that were explicitely installed.
+
+that said,
+
+  pacman -Qqe | grep -v "$(pacman -Qqm)" > pacman.lst
+
+and
+
+  cat pacman.lst | xargs pacman -S --needed --noconfirm
+
+are the best backup/restore lines i've seen (don't remember where i got them tho).
+
+that will install only the packages you don't have installed already as well as pull in any needed deps.  after that, -Syu and you're good to go.
