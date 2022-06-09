@@ -47,5 +47,5 @@ fi
 # done
 # unset f
 #fi
-
+setxkbmap -layout dk
 exec awesome

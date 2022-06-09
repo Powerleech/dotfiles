@@ -1,11 +1,9 @@
 [global_config]
   title_at_bottom = True
-  title_hide_sizetext = True
 [keybindings]
 [profiles]
   [[default]]
-    background_darkness = 0.44
-    cursor_color = "#aaaaaa"
+    background_darkness = 0.8
 [layouts]
   [[default]]
     [[[child0]]]
