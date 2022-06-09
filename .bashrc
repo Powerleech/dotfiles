@@ -29,10 +29,5 @@ source /usr/share/bash-completion/completions/git
 # nvm
 source /usr/share/nvm/init-nvm.sh 
 
-# startx and awesome
-if [[ -z $DISPLAY ]] && [[ $(tty) = /dev/tty1 ]]; then
-    startx
-fi
-
 export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
 export PATH=$PATH:/home/myself/scripts/
