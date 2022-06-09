@@ -23,7 +23,7 @@ local freedesktop   = require("freedesktop")
 local hotkeys_popup = require("awful.hotkeys_popup")
                       require("awful.hotkeys_popup.keys")
 local mytable       = awful.util.table or gears.table -- 4.{0,1} compatibility
-
+local dpi = require('beautiful').xresources.apply_dpi
 -- }}}
 
 -- {{{ Error handling
@@ -68,7 +68,7 @@ local function run_once(cmd_arr)
     end
 end
 
-run_once({ "urxvtd", "unclutter -root", "picom" }) -- comma-separated entries
+run_once({ "urxvtd", "unclutter -root", "picom", "greenclip daemon" }) -- comma-separated entries
 
 -- This function implements the XDG autostart specification
 --[[
@@ -104,7 +104,11 @@ local terminal     = "terminator"
 local vi_focus     = false -- vi-like client focus https://github.com/lcpz/awesome-copycats/issues/275
 local cycle_prev   = true  -- cycle with only the previously focused client or all https://github.com/lcpz/awesome-copycats/issues/274
 local editor       = os.getenv("EDITOR") or "nvim"
+
 local browser      = "google-chrome-stable"
+local rofi_emoji_cmd = "rofi -dpi " .. dpi(80) .. " -show emoji -modi emoji"
+local rofi_cmd = "rofi -dpi " .. dpi(80) .. " -show combi"
+local greenclip_cmd = "rofi -dpi " .. dpi(80) .. " -modi 'clipboard:greenclip print' -show clipboard -run-command '{cmd}' "
 
 awful.util.terminal = terminal
 awful.util.tagnames = { "1", "2", "3", "4", "5" }
@@ -265,9 +269,10 @@ root.buttons(mytable.join(
 -- {{{ Key bindings
 
 globalkeys = mytable.join(
-    -- Destroy all notifications
+    --[[ Destroy all notifications
     awful.key({ "Control",           }, "space", function() naughty.destroy_all_notifications() end,
               {description = "destroy all notifications", group = "hotkeys"}),
+    --]]
     -- Take a screenshot
     -- https://github.com/lcpz/dots/blob/master/bin/screenshot
     awful.key({ altkey }, "p", function() os.execute("screenshot") end,
@@ -335,10 +340,10 @@ globalkeys = mytable.join(
         end,
         {description = "focus right", group = "client"}),
 
-    -- Menu
+    --[[ Menu
     awful.key({ modkey,           }, "w", function () awful.util.mymainmenu:show() end,
               {description = "show main menu", group = "awesome"}),
-
+    --]]
     -- Layout manipulation
     awful.key({ modkey, "Shift"   }, "j", function () awful.client.swap.byidx(  1)    end,
               {description = "swap with next client by index", group = "client"}),
@@ -537,20 +542,23 @@ globalkeys = mytable.join(
         end,
         {description = "show dmenu", group = "launcher"}),
     --]]
-    -- alternatively use rofi, a dmenu-like application with more features
+    -- alternatively usj rofi, a dmenu-like application with more features
     -- check https://github.com/DaveDavenport/rofi for more details
-    --[[ rofi
-    awful.key({ modkey }, "x", function ()
-            os.execute(string.format("rofi -show %s -theme %s",
-            'run', 'dmenu'))
-        end,
+    -- rofi
+    awful.key({ altkey }, "w", function () awful.spawn(rofi_cmd) end,
         {description = "show rofi", group = "launcher"}),
-    --]]
+
+    awful.key({ altkey }, "z", function () awful.spawn(greenclip_cmd) end,
+        {description = "clipboard history", group = "launcher"}),
+    --  rofi emoji
+    awful.key({ altkey }, "e", function () awful.spawn(rofi_emoji_cmd) end,
+        {description = "clipboard history", group = "launcher"}),
+
     -- Prompt
     awful.key({ modkey }, "r", function () awful.screen.focused().mypromptbox:run() end,
-              {description = "run prompt", group = "launcher"}),
+              {description = "run prompt", group = "launcher"})
 
-    awful.key({ modkey }, "x",
+   --[[ awful.key({ modkey }, "x",
               function ()
                   awful.prompt.run {
                     prompt       = "Run Lua code: ",
