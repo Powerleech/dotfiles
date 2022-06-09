@@ -7,7 +7,6 @@ source /usr/share/bash-completion/completions/git
 [[ $- != *i* ]] && return
 
 
-config config status.showUntrackedFiles no
 
 alias config='/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME'
 alias ls='ls --color=auto'
@@ -26,7 +25,8 @@ eval "$(starship init bash)"
 source /usr/share/bash-completion/completions/git
 
 # nvm
-source /usr/share/nvm/init-nvm.sh 
+source /usr/share/nvm/init-nvm.sh
 
+config config status.showUntrackedFiles no
 export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
 export PATH=$PATH:/home/myself/scripts/
