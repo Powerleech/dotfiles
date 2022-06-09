@@ -104,11 +104,11 @@ local terminal     = "terminator"
 local vi_focus     = false -- vi-like client focus https://github.com/lcpz/awesome-copycats/issues/275
 local cycle_prev   = true  -- cycle with only the previously focused client or all https://github.com/lcpz/awesome-copycats/issues/274
 local editor       = os.getenv("EDITOR") or "nvim"
-local browser      = "google-chrome-unstable"
+
+local browser      = "google-chrome-stable"
 local rofi_emoji_cmd = "rofi -dpi " .. dpi(80) .. " -show emoji -modi emoji"
 local rofi_cmd = "rofi -dpi " .. dpi(80) .. " -show combi"
 local greenclip_cmd = "rofi -dpi " .. dpi(80) .. " -modi 'clipboard:greenclip print' -show clipboard -run-command '{cmd}' "
-
 
 awful.util.terminal = terminal
 awful.util.tagnames = { "1", "2", "3", "4", "5" }
