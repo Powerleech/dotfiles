@@ -1,6 +1,7 @@
 #
 # ~/.bashrc
 #
+source /usr/share/bash-completion/completions/git
 
 # If not running interactively, don't do anything
 [[ $- != *i* ]] && return
@@ -17,8 +18,6 @@ if type rg &> /dev/null; then
 	export FZF_DEFAULT_COMMAND='rg --files'
 	export FZF_DEFAULT_OPTS='-m --height 50% --border'
 fi
-
-
 
 #starship
 eval "$(starship init bash)"
