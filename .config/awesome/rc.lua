@@ -430,10 +430,6 @@ globalkeys = mytable.join(
         end
     end, {description = "restore minimized", group = "client"}),
 
-    -- Dropdown application
-    awful.key({ modkey, }, "z", function () awful.screen.focused().quake:toggle() end,
-              {description = "dropdown application", group = "launcher"}),
-
     -- Widgets popups
     awful.key({ altkey, }, "c", function () if beautiful.cal then beautiful.cal.show(7) end end,
               {description = "show calendar", group = "widgets"}),
@@ -546,13 +542,13 @@ globalkeys = mytable.join(
     -- check https://github.com/DaveDavenport/rofi for more details
     -- rofi
     awful.key({ altkey }, "w", function () awful.spawn(rofi_cmd) end,
-        {description = "show rofi", group = "launcher"}),
+        {description = "rofi", group = "launcher"}),
 
     awful.key({ altkey }, "z", function () awful.spawn(greenclip_cmd) end,
         {description = "clipboard history", group = "launcher"}),
     --  rofi emoji
     awful.key({ altkey }, "e", function () awful.spawn(rofi_emoji_cmd) end,
-        {description = "clipboard history", group = "launcher"}),
+        {description = "emojipicker", group = "launcher"}),
 
     -- Prompt
     awful.key({ modkey }, "r", function () awful.screen.focused().mypromptbox:run() end,
