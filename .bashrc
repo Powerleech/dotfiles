@@ -7,7 +7,7 @@ source /usr/share/bash-completion/completions/git
 [[ $- != *i* ]] && return
 
 # nvm
-source /usr/share/nvm/init-nvm.sh
+if [[ -d /usr/share/nvm/init-nvm.sh ]]; then source /usr/share/nvm/init-nvm.sh; fi
 
 alias config='/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME'
 alias ls='ls --color=auto'
