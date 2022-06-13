@@ -37,12 +37,11 @@ highlight ColorColumn ctermbg=0 guibg=lightgrey
 
 map <C-n> :NERDTreeToggle<CR>
 map <C-p> :Files<CR>
+map <C-p>g :GFiles<CR>
 map <C-f> :Rg<CR>
 map <C-t> :e <cfile><cr>
 map <S-Tab> :bn<CR>
 map <F5> :setlocal spell! spelllang=en_gb<CR>
-#map s<Plug> sneak_s
-#map S<Plug> Sneak_S
 
 let loaded_matchparen = 1
 let mapleader = " "

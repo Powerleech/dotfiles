@@ -114,11 +114,11 @@ theme.cal = lain.widget.cal({
 
 -- Mail IMAP check
 local mailicon = wibox.widget.imagebox(theme.widget_mail)
---[[ commented because it needs to be set before use
+-- commented because it needs to be set before use
 mailicon:buttons(my_table.join(awful.button({ }, 1, function () awful.spawn(mail) end)))
 theme.mail = lain.widget.imap({
     timeout  = 180,
-    server   = "server",
+    server   = "imap.gmail.com:993/ssl/moneyhonster@gmail.com",
     mail     = "mail",
     password = "keyring get mail",
     settings = function()
@@ -131,7 +131,6 @@ theme.mail = lain.widget.imap({
         end
     end
 })
---]]
 
 -- MPD
 local musicplr = awful.util.terminal .. " -title Music -e ncmpcpp"
