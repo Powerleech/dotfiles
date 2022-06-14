@@ -42,5 +42,5 @@ fi
 
 # start some nice programs
 setxkbmap -layout dk
-sh ~/scripts/xinputconf.sh
+# sh ~/scripts/xinputconf.sh
 exec awesome
