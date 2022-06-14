@@ -44,7 +44,6 @@ map <S-Tab> :bn<CR>
 map <F5> :setlocal spell! spelllang=en_gb<CR>
 
 let loaded_matchparen = 1
-let mapleader = " "
 " Having longer updatetime (default is 4000 ms = 4 s) leads to noticeable
 " delays and poor user experience.
 set updatetime=50

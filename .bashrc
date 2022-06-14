@@ -12,6 +12,9 @@ if [[ -d /usr/share/nvm/init-nvm.sh ]]; then source /usr/share/nvm/init-nvm.sh; 
 alias config='/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME'
 alias ls='ls --color=auto'
 alias vim='nvim'
+alias vimrc='vim ~/.vimrc'
+alias bashrc='vim ~/.bashrc'
+alias rclua='vim ~/.config/awesome/rc.lua'
 PS1='[\u@\h \W]\$ '
 
 if type rg &> /dev/null; then
@@ -27,4 +30,4 @@ source /usr/share/bash-completion/completions/git
 
 config config status.showUntrackedFiles no
 export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
-export PATH=$PATH:/home/myself/scripts/
+# export PATH=$PATH:/home/myself/scripts/
