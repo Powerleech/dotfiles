@@ -16,11 +16,7 @@ alias vimrc='vim ~/.vimrc'
 alias bashrc='vim ~/.bashrc'
 alias rclua='vim ~/.config/awesome/rc.lua'
 
-<<<<<<< HEAD
-# stolen from https://salferrarello.com/using-vim-view-git-commits/ -- not edited
-=======
-# stolen from https://salferrarello.com/using-vim-view-git-commits/ -- edited
->>>>>>> 871582bdea0a12384ecc22d8cd21553a4858b7be
+# stolen from https://salferrarello.com/using-vim-view-git-commits/
 alias 'git-log'="git log --graph --pretty=format:'%h - %d %s (%cr) <%an>' | nvim -R -c 'set hidden nowrap keywordprg=:enew\ \|\ terminal\ \git\ --no-pager\ show | nnoremap q :bd!<cr>' -"
 
 
