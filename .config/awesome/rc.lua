@@ -107,7 +107,7 @@ local editor       = os.getenv("EDITOR") or "nvim"
 
 local browser      = "google-chrome-stable"
 local rofi_emoji_cmd = "rofi -dpi " .. dpi(80) .. " -show emoji -modi emoji"
-local rofi_cmd = "rofi -dpi " .. dpi(80) .. " -show combi"
+local rofi_cmd = "rofi -dpi " .. dpi(80) .. " -combi-modi window,drun -show combi"
 local greenclip_cmd = "rofi -dpi " .. dpi(80) .. " -modi 'clipboard:greenclip print' -show clipboard -run-command '{cmd}' "
 
 awful.util.terminal = terminal
