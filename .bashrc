@@ -1,7 +1,6 @@
-        #
+#
 # ~/.bashrc
 #
-source /usr/share/bash-completion/completions/git
 
 # If not running interactively, don't do anything
 [[ $- != *i* ]] && return
@@ -18,13 +17,12 @@ alias rclua='vim ~/.config/awesome/rc.lua'
 
 # stolen from https://salferrarello.com/using-vim-view-git-commits/
 alias 'git-log'="git log --graph --pretty=format:'%h - %d %s (%cr) <%an>' | nvim -R -c 'set hidden nowrap keywordprg=:enew\ \|\ terminal\ \git\ --no-pager\ show | nnoremap q :bd!<cr>' -"
-alias 'config-log'="config log --graph --pretty=format:'%h - %d %s (%cr) <%an>' | nvim -R -c 'set hidden nowrap keywordprg=:enew\ \|\ terminal\ \config\ --no-pager\ show | nnoremap q :bd!<cr>' -"
 
 
 PS1='[\u@\h \W]\$ '
 
 if type rg &> /dev/null; then
-	export FZF_DEFAULT_COMMAND='rg  --files -g "!yarn.lock" -ig "node_modules/*" -g ".vimrc"'
+	export FZF_DEFAULT_COMMAND='rg  --files'
 	export FZF_DEFAULT_OPTS='-m --height 50% --border'
 fi
 
