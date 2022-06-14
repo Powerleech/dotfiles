@@ -23,7 +23,7 @@ local freedesktop   = require("freedesktop")
 local hotkeys_popup = require("awful.hotkeys_popup")
                       require("awful.hotkeys_popup.keys")
 local mytable       = awful.util.table or gears.table -- 4.{0,1} compatibility
-local dpi = require('beautiful').xresources.apply_dpi
+local dpi = beautiful.xresources.apply_dpi
 -- }}}
 
 -- {{{ Error handling
@@ -68,7 +68,7 @@ local function run_once(cmd_arr)
     end
 end
 
-run_once({ "urxvtd", "unclutter -root", "picom", "greenclip daemon" }) -- comma-separated entries
+run_once({ "unclutter -root", "picom", "greenclip daemon" }) -- comma-separated entries
 
 -- This function implements the XDG autostart specification
 --[[
@@ -107,7 +107,7 @@ local editor       = os.getenv("EDITOR") or "nvim"
 
 local browser      = "google-chrome-stable"
 local rofi_emoji_cmd = "rofi -dpi " .. dpi(80) .. " -show emoji -modi emoji"
-local rofi_cmd = "rofi -dpi " .. dpi(80) .. " -show combi"
+local rofi_cmd = "rofi -dpi " .. dpi(80) .. " -combi-modi window,drun -show combi"
 local greenclip_cmd = "rofi -dpi " .. dpi(80) .. " -modi 'clipboard:greenclip print' -show clipboard -run-command '{cmd}' "
 
 awful.util.terminal = terminal

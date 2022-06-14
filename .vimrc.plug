@@ -3,7 +3,6 @@ call plug#begin('~/.vim/plugged')
 
 "lsp plugins
 Plug 'neovim/nvim-lspconfig'
-Plug 'nvim-lua/plenary.nvim'
 Plug 'jose-elias-alvarez/null-ls.nvim'
 Plug 'jose-elias-alvarez/nvim-lsp-ts-utils'
 Plug 'folke/lsp-colors.nvim'
@@ -13,6 +12,8 @@ Plug 'saadparwaiz1/cmp_luasnip'
 Plug 'L3MON4D3/LuaSnip'
 Plug 'justinmk/vim-sneak'
 Plug 'ronakg/quickr-preview'
+Plug 'nvim-lua/plenary.nvim'
+Plug 'nvim-telescope/telescope.nvim'
 
 " Git
 Plug 'tpope/vim-fugitive'
@@ -37,5 +38,3 @@ Plug 'ap/vim-buftabline'
 Plug 'christoomey/vim-tmux-navigator'
 
 call plug#end()
-
-set background=dark
