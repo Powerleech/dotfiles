@@ -1,5 +1,5 @@
 configuration {
-	modi: "window,run,ssh,combi,emoji";
+	modi: "window,drun,ssh,combi,emoji";
 /*	font: "mono 12";*/
 /*	location: 0;*/
 /*	yoffset: 0;*/
@@ -145,4 +145,3 @@ configuration {
       sorting-method:    "name";
   }
 }
-@theme "/usr/share/rofi/themes/DarkBlue.rasi"
