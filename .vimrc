@@ -29,6 +29,7 @@ set incsearch
 set scrolloff=8
 set modifiable
 set clipboard=unnamedplus
+set foldmethod=syntax
 
 " Give more space for displaying messages.
 set cmdheight=2
