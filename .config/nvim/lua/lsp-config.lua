@@ -46,7 +46,7 @@ lspconfig.tsserver.setup({
         on_attach(client, bufnr)
     end,
 })
-null_ls.setup({
+--[[null_ls.setup({
     sources = {
         null_ls.builtins.diagnostics.eslint,
         null_ls.builtins.code_actions.eslint,
@@ -54,6 +54,7 @@ null_ls.setup({
     },
     on_attach = on_attach,
 })
+--]]
 
 -- Set completeopt to have a better completion experience
 vim.o.completeopt = 'menuone,noselect'
