@@ -28,7 +28,7 @@ set undofile
 set incsearch
 set scrolloff=8
 set modifiable
-set clipboard=unnamedplus
+set clipboard+=unnamedplus
 
 " Give more space for displaying messages.
 set cmdheight=2
