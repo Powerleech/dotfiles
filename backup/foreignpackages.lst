@@ -1,10 +1,15 @@
-code-marketplace
-gnome-terminal-transparency-debug
-google-chrome-dev
-nerd-fonts-complete-starship
-rofi-greenclip
-spotify
-vim-plug
-visual-studio-code-bin
-xinit-xsession
-yay
+awesome-themes-git r18.4d7c8f8-1
+cht.sh-git r901.571377f-1
+extra-cmake-modules-git 5.95.0.r3487.b01c2150-1
+google-chrome 102.0.5005.61-1
+libvterm-0.1 0.1.4-1
+neovim-git 0.7.0.r722.gf479dd0bbe-1
+nvm 0.39.1-1
+postman-agent 0.4.4-1
+rofi-greenclip 4.2-2
+snapd 2.56-1
+spotify 1:1.1.84.716-1
+terminator-git 2.1.1.154.gd33c145b-1
+vim-plug 0.11.0-1
+visual-studio-code-bin 1.67.2-1
+yay-git 11.1.2.r13.g4ca50e5-1

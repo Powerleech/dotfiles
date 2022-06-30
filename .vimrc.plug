@@ -14,6 +14,7 @@ Plug 'justinmk/vim-sneak'
 Plug 'ronakg/quickr-preview'
 Plug 'nvim-lua/plenary.nvim'
 Plug 'nvim-telescope/telescope.nvim'
+Plug 'tpope/vim-commentary'
 
 " Git
 Plug 'tpope/vim-fugitive'
