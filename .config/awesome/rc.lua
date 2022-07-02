@@ -80,6 +80,12 @@ awful.spawn.with_shell(
 )
 --]]
 
+local function togglePicom()
+    awful.spawn.with_shell(
+       'ps cax | grep picom > /dev/null; if [ $? -eq 0 ]; then killall picom; else picom -b; fi'
+    )
+end
+
 -- }}}
 
 -- {{{ Variable definitions
@@ -313,6 +319,9 @@ globalkeys = mytable.join(
         end,
         {description = "focus previous by index", group = "client"}
     ),
+    -- toggle picom
+    awful.key({ modkey, "Control" }, "p", function()  togglePicom() end,
+            {description = "Toggle Picom on/off", group = "awesome"}),
 
     -- By-direction client focus
     awful.key({ modkey }, "j",
@@ -398,13 +407,22 @@ globalkeys = mytable.join(
               {description = "delete tag", group = "tag"}),
 
     -- Standard program
-    awful.key({ modkey,           }, "Return", function () awful.spawn(terminal) end,
+    awful.key({ modkey,           }, "Return", function () awful.spawn(terminal, {tag = mouse.screen.selected_tag}) end,
               {description = "open a terminal", group = "launcher"}),
     awful.key({ modkey, "Control" }, "r", awesome.restart,
               {description = "reload awesome", group = "awesome"}),
     awful.key({ modkey, "Shift"   }, "q", awesome.quit,
               {description = "quit awesome", group = "awesome"}),
-
+    awful.key({ modkey }, "x",
+              function ()
+                  awful.prompt.run {
+                    prompt       = "Run Lua code: ",
+                    textbox      = awful.screen.focused().mypromptbox.widget,
+                    exe_callback = awful.util.eval,
+                    history_path = awful.util.get_cache_dir() .. "/history_eval"
+                  }
+              end,
+              {description = "lua execute prompt", group = "awesome"}),
     awful.key({ modkey, altkey    }, "l",     function () awful.tag.incmwfact( 0.05)          end,
               {description = "increase master width factor", group = "layout"}),
     awful.key({ modkey, altkey    }, "h",     function () awful.tag.incmwfact(-0.05)          end,
