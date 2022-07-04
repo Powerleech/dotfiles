@@ -407,8 +407,12 @@ globalkeys = mytable.join(
               {description = "delete tag", group = "tag"}),
 
     -- Standard program
-    awful.key({ modkey,           }, "Return", function () awful.spawn(terminal, {tag = mouse.screen.selected_tag}) end,
-              {description = "open a terminal", group = "launcher"}),
+    awful.key({ modkey,           }, "Return",
+            function ()
+                awful.spawn(terminal, {tag = mouse.screen.selected_tag})
+                awful.client.movetoscreen(c, client.focus.screen)
+            end,
+            {description = "open a terminal", group = "launcher"}),
     awful.key({ modkey, "Control" }, "r", awesome.restart,
               {description = "reload awesome", group = "awesome"}),
     awful.key({ modkey, "Shift"   }, "q", awesome.quit,
@@ -720,10 +724,6 @@ awful.rules.rules = {
 
      }
     },
-    {
-        rule = { class = "terminator" },
-            properties = {opacity = 0.8 }
-    },
 
     -- Floating clients.
     { rule_any = {
@@ -762,8 +762,8 @@ awful.rules.rules = {
     },
 
     -- Set Firefox to always map on the tag named "2" on screen 1.
-    -- { rule = { class = "Firefox" },
-    --   properties = { screen = 1, tag = "2" } },
+    { rule = { class = "chrome" },
+      properties = { screen = 1, tag = "2" } },
 }
 
 -- }}}
