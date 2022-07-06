@@ -281,8 +281,8 @@ globalkeys = mytable.join(
     --]]
     -- Take a screenshot
     -- https://github.com/lcpz/dots/blob/master/bin/screenshot
-    awful.key({ altkey }, "p", function() os.execute("screenshot") end,
-              {description = "take a screenshot", group = "hotkeys"}),
+    -- awful.key({ altkey }, "p", function() os.execute("screenshot") end,
+    --           {description = "take a screenshot", group = "hotkeys"}),
 
     -- X screen locker
     awful.key({ altkey, "Control" }, "l", function () os.execute(scrlocker) end,
@@ -410,7 +410,6 @@ globalkeys = mytable.join(
     awful.key({ modkey,           }, "Return",
             function ()
                 awful.spawn(terminal, {tag = mouse.screen.selected_tag})
-                awful.client.movetoscreen(c, client.focus.screen)
             end,
             {description = "open a terminal", group = "launcher"}),
     awful.key({ modkey, "Control" }, "r", awesome.restart,
@@ -574,7 +573,11 @@ globalkeys = mytable.join(
 
     -- Prompt
     awful.key({ modkey }, "r", function () awful.screen.focused().mypromptbox:run() end,
-              {description = "run prompt", group = "launcher"})
+              {description = "run prompt", group = "launcher"}),
+
+    -- rofi pass
+    awful.key({ altkey }, "p", function () awful.spawn("rofi-pass") end,
+        {description = "rofi-pass", group = "launcher"})
 
    --[[ awful.key({ modkey }, "x",
               function ()
