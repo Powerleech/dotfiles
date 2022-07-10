@@ -6,10 +6,8 @@ endif
 
 set termguicolors
 lua require("lsp-config")
-" lua require("gitsignz")
-" lua require("statusbar")
-lua require("plugins/feline")
-" lua require("test")
+lua require("gitsignz")
+lua require("statusbar")
 syntax on
 
 set guicursor=
