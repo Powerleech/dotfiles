@@ -4,8 +4,12 @@ if filereadable(expand("~/.vimrc.plug"))
    source ~/.vimrc.plug
 endif
 
-" import lsp-config
+set termguicolors
 lua require("lsp-config")
+" lua require("gitsignz")
+" lua require("statusbar")
+lua require("plugins/feline")
+" lua require("test")
 syntax on
 
 set guicursor=
@@ -58,9 +62,6 @@ nmap <leader>gs :G<CR>
 " Status bar config
 set statusline+=%#warningmsg#
 
-" Close NERDTree when closing the last buffer
-autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
-
 fun! TrimWhitespace()
     let l:save = winsaveview()
     keeppatterns %s/\s\+$//e
@@ -91,3 +92,4 @@ command! -bang -nargs=* Rg
   \ call fzf#vim#grep(
   \   'rg --column --line-number --no-heading --color=always --smart-case -- '.shellescape(<q-args>), 1,
   \   fzf#vim#with_preview(), <bang>0)
+
