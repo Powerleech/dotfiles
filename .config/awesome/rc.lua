@@ -68,7 +68,13 @@ local function run_once(cmd_arr)
     end
 end
 
-run_once({ "unclutter -root", "picom", "greenclip daemon" }) -- comma-separated entries
+run_once(
+    {
+        "unclutter -root",
+        -- "picom",
+        "greenclip daemon"
+    }
+)
 
 -- This function implements the XDG autostart specification
 --[[

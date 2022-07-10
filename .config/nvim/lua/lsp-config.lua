@@ -6,6 +6,10 @@ local buf_map = function(bufnr, mode, lhs, rhs, opts)
     })
 end
 local on_attach = function(client, bufnr)
+    local function buf_set_option(...) vim.api.nvim_buf_set_option(bufnr, ...) end
+
+    buf_set_option('omnifunc', 'v:lua.vim.lsp.omnifunc')
+
     vim.cmd("command! LspDef lua vim.lsp.buf.definition()")
     vim.cmd("command! LspFormatting lua vim.lsp.buf.formatting()")
     vim.cmd("command! LspCodeAction lua vim.lsp.buf.code_action()")
@@ -29,10 +33,56 @@ local on_attach = function(client, bufnr)
     buf_map(bufnr, "n", "ga", ":LspCodeAction<CR>")
     buf_map(bufnr, "n", "<Leader>a", ":LspDiagLine<CR>")
     buf_map(bufnr, "i", "<C-x><C-x>", "<cmd> LspSignatureHelp<CR>")
-    if client.server_capabilities.documentFormattingProvider then
-        vim.cmd("autocmd BufWritePre <buffer> lua vim.lsp.buf.formatting_sync()")
+    -- if client.server_capabilities.documentFormattingProvider then
+    --     vim.cmd("autocmd BufWritePre <buffer> lua vim.lsp.buf.formatting_sync()")
+    -- end
+     -- Set some keybinds conditional on server capabilities
+    if client.server_capabilities.document_formatting then
+        buf_set_keymap("n", "<leader>lf", "<cmd>lua vim.lsp.buf.formatting()<CR>", opts)
+    elseif client.server_capabilities.document_range_formatting then
+        buf_set_keymap("n", "<leader>lf", "<cmd>lua vim.lsp.buf.range_formatting()<CR>", opts)
     end
+
+    -- Set autocommands conditional on server_capabilities
+    -- if client.resolved_capabilities.document_highlight then
+    --     vim.api.nvim_exec([[
+    --     hi LspReferenceRead cterm=bold ctermbg=red guibg=LightYellow
+    --     hi LspReferenceText cterm=bold ctermbg=red guibg=LightYellow
+    --     hi LspReferenceWrite cterm=bold ctermbg=red guibg=LightYellow
+    --     augroup lsp_document_highlight
+    --     autocmd! * <buffer>
+    --     autocmd CursorHold <buffer> lua vim.lsp.buf.document_highlight()
+    --     autocmd CursorMoved <buffer> lua vim.lsp.buf.clear_references()
+    --     augroup END
+    --     ]], false)
+    -- end
 end
+
+local capabilities = vim.lsp.protocol.make_client_capabilities()
+
+-- Code actions
+capabilities.textDocument.codeAction = {
+  dynamicRegistration = false;
+      codeActionLiteralSupport = {
+          codeActionKind = {
+              valueSet = {
+                 "",
+                 "quickfix",
+                 "refactor",
+                 "refactor.extract",
+                 "refactor.inline",
+                 "refactor.rewrite",
+                 "source",
+                 "source.organizeImports",
+              };
+          };
+      };
+}
+
+-- Snippets
+capabilities.textDocument.completion.completionItem.snippetSupport = true;
+
+
 lspconfig.tsserver.setup({
     on_attach = function(client, bufnr)
         client.server_capabilities.documentFormattingProvider = false
@@ -46,15 +96,6 @@ lspconfig.tsserver.setup({
         on_attach(client, bufnr)
     end,
 })
---[[null_ls.setup({
-    sources = {
-        null_ls.builtins.diagnostics.eslint,
-        null_ls.builtins.code_actions.eslint,
-        null_ls.builtins.formatting.prettier,
-    },
-    on_attach = on_attach,
-})
---]]
 
 -- Set completeopt to have a better completion experience
 vim.o.completeopt = 'menuone,noselect'

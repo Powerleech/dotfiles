@@ -16,6 +16,14 @@ Plug 'nvim-lua/plenary.nvim'
 Plug 'nvim-telescope/telescope.nvim'
 Plug 'tpope/vim-commentary'
 Plug 'leafgarland/typescript-vim'
+Plug 'famiu/feline.nvim'
+Plug 'kyazdani42/nvim-web-devicons'
+Plug 'monsonjeremy/onedark.nvim'
+Plug 'lewis6991/gitsigns.nvim'
+
+" Line
+Plug 'nvim-treesitter/nvim-treesitter'
+Plug 'SmiteshP/nvim-gps'
 
 " Git
 Plug 'tpope/vim-fugitive'
@@ -25,9 +33,6 @@ Plug 'preservim/nerdcommenter'
 
 " NERDtree
 Plug 'preservim/nerdtree'
-
-" Statusbar
-" Plug 'itchyny/lightline.vim'
 
 " Finder
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
