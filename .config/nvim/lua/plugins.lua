@@ -38,7 +38,10 @@ return require('packer').startup(function(use)
       config = lua_path'nvim-gps' 
   }
 
--- Icons
+  -- colorscheme
+     use { 'sainnhe/gruvbox-material' }
+
+  -- Icons
   use { 'kyazdani42/nvim-web-devicons' }
   use { 'ryanoasis/vim-devicons' }
 
