@@ -11,14 +11,14 @@ export NVM_DIR="$([ -z "${XDG_CONFIG_HOME-}" ] && printf %s "${HOME}/.nvm" || pr
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" # This loads nvm
 alias config='/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME'
 alias ls='ls --color=auto'
-alias vim='/bin/nvim/bin/nvim'
+alias vim='~/.local/bin/bin/nvim'
 alias vimrc='vim ~/.config/nvim/init.lua'
 alias plugins='vim ~/.config/nvim/lua/plugins.lua'
 alias bashrc='vim ~/.bashrc'
 alias rclua='vim ~/.config/awesome/rc.lua'
 alias lspconfig='vim ~/.config/nvim/lua/lsp-config.lua'
 alias config-commit='config add -u && config commit -m'
-alias bluetooth-on='echo "power on" | bluetoothctl'
+alias bluetooth-on='echo "power on"; echo "connect 38:18:4C:16:A4:82"; echo "connect 38:18:4C:16:A4:82" | bluetoothctl'
 
 # stolen from https://salferrarello.com/using-vim-view-git-commits/
 alias 'git-log'="git log --graph --pretty=format:'%h - %d %s (%cr) <%an>' | nvim -R -c 'set hidden nowrap keywordprg=:enew\ \|\ terminal\ \git\ --no-pager\ show | nnoremap q :bd!<cr>' -"

@@ -99,10 +99,15 @@ _G.packer_plugins = {
     path = "/home/powerleech/.local/share/nvim/site/pack/packer/start/gitsigns.nvim",
     url = "https://github.com/lewis6991/gitsigns.nvim"
   },
-  nerdcommenter = {
+  ["gruvbox-material"] = {
     loaded = true,
-    path = "/home/powerleech/.local/share/nvim/site/pack/packer/start/nerdcommenter",
-    url = "https://github.com/preservim/nerdcommenter"
+    path = "/home/powerleech/.local/share/nvim/site/pack/packer/start/gruvbox-material",
+    url = "https://github.com/sainnhe/gruvbox-material"
+  },
+  nerdtree = {
+    loaded = true,
+    path = "/home/powerleech/.local/share/nvim/site/pack/packer/start/nerdtree",
+    url = "https://github.com/preservim/nerdtree"
   },
   ["null-ls.nvim"] = {
     loaded = true,
@@ -119,6 +124,24 @@ _G.packer_plugins = {
     path = "/home/powerleech/.local/share/nvim/site/pack/packer/start/nvim-code-action-menu",
     url = "https://github.com/weilbith/nvim-code-action-menu"
   },
+  ["nvim-dap"] = {
+    config = { 'require"plugins.nvim-dap"' },
+    loaded = true,
+    path = "/home/powerleech/.local/share/nvim/site/pack/packer/start/nvim-dap",
+    url = "https://github.com/mfussenegger/nvim-dap"
+  },
+  ["nvim-dap-ui"] = {
+    config = { 'require"plugins.nvim-dap-ui"' },
+    loaded = true,
+    path = "/home/powerleech/.local/share/nvim/site/pack/packer/start/nvim-dap-ui",
+    url = "https://github.com/rcarriga/nvim-dap-ui"
+  },
+  ["nvim-dap-virtual-text"] = {
+    config = { 'require"plugins.nvim-dap-virtual-text"' },
+    loaded = true,
+    path = "/home/powerleech/.local/share/nvim/site/pack/packer/start/nvim-dap-virtual-text",
+    url = "https://github.com/theHamsta/nvim-dap-virtual-text"
+  },
   ["nvim-gps"] = {
     config = { 'require"plugins.nvim-gps"' },
     loaded = true,
@@ -134,6 +157,12 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/powerleech/.local/share/nvim/site/pack/packer/start/nvim-lspconfig",
     url = "https://github.com/neovim/nvim-lspconfig"
+  },
+  ["nvim-neoclip.lua"] = {
+    config = { 'require"plugins.nvim-neoclip"' },
+    loaded = true,
+    path = "/home/powerleech/.local/share/nvim/site/pack/packer/start/nvim-neoclip.lua",
+    url = "https://github.com/AckslD/nvim-neoclip.lua"
   },
   ["nvim-treesitter"] = {
     loaded = true,
@@ -176,10 +205,20 @@ _G.packer_plugins = {
     path = "/home/powerleech/.local/share/nvim/site/pack/packer/start/telescope.nvim",
     url = "https://github.com/nvim-telescope/telescope.nvim"
   },
+  ["tokyonight.nvim"] = {
+    loaded = true,
+    path = "/home/powerleech/.local/share/nvim/site/pack/packer/start/tokyonight.nvim",
+    url = "https://github.com/folke/tokyonight.nvim"
+  },
   ["trouble.nvim"] = {
     loaded = true,
     path = "/home/powerleech/.local/share/nvim/site/pack/packer/start/trouble.nvim",
     url = "https://github.com/folke/trouble.nvim"
+  },
+  ["vim-commentary"] = {
+    loaded = true,
+    path = "/home/powerleech/.local/share/nvim/site/pack/packer/start/vim-commentary",
+    url = "https://github.com/tpope/vim-commentary"
   },
   ["vim-devicons"] = {
     loaded = true,
@@ -195,26 +234,42 @@ _G.packer_plugins = {
 }
 
 time([[Defining packer_plugins]], false)
--- Config for: telescope.nvim
-time([[Config for telescope.nvim]], true)
-require"plugins.telescope"
-time([[Config for telescope.nvim]], false)
--- Config for: which-key.nvim
-time([[Config for which-key.nvim]], true)
-require"plugins.which-key"
-time([[Config for which-key.nvim]], false)
--- Config for: gitsigns.nvim
-time([[Config for gitsigns.nvim]], true)
-require"plugins.gitsigns"
-time([[Config for gitsigns.nvim]], false)
+-- Config for: nvim-neoclip.lua
+time([[Config for nvim-neoclip.lua]], true)
+require"plugins.nvim-neoclip"
+time([[Config for nvim-neoclip.lua]], false)
+-- Config for: nvim-dap-ui
+time([[Config for nvim-dap-ui]], true)
+require"plugins.nvim-dap-ui"
+time([[Config for nvim-dap-ui]], false)
 -- Config for: feline.nvim
 time([[Config for feline.nvim]], true)
 require"plugins.feline"
 time([[Config for feline.nvim]], false)
+-- Config for: nvim-dap-virtual-text
+time([[Config for nvim-dap-virtual-text]], true)
+require"plugins.nvim-dap-virtual-text"
+time([[Config for nvim-dap-virtual-text]], false)
+-- Config for: which-key.nvim
+time([[Config for which-key.nvim]], true)
+require"plugins.which-key"
+time([[Config for which-key.nvim]], false)
 -- Config for: nvim-gps
 time([[Config for nvim-gps]], true)
 require"plugins.nvim-gps"
 time([[Config for nvim-gps]], false)
+-- Config for: telescope.nvim
+time([[Config for telescope.nvim]], true)
+require"plugins.telescope"
+time([[Config for telescope.nvim]], false)
+-- Config for: gitsigns.nvim
+time([[Config for gitsigns.nvim]], true)
+require"plugins.gitsigns"
+time([[Config for gitsigns.nvim]], false)
+-- Config for: nvim-dap
+time([[Config for nvim-dap]], true)
+require"plugins.nvim-dap"
+time([[Config for nvim-dap]], false)
 -- Load plugins in order defined by `after`
 time([[Sequenced loading]], true)
 vim.cmd [[ packadd fzf ]]
