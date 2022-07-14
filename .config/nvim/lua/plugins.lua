@@ -23,6 +23,9 @@ return require('packer').startup(function(use)
     return string.format('require"plugins.%s"', name)
   end
 
+  use { 'ggandor/lightspeed.nvim', config = lua_path"lightspeed" }
+
+
   -- LSP
   use { 'neovim/nvim-lspconfig' }
   use { 'weilbith/nvim-code-action-menu' }
