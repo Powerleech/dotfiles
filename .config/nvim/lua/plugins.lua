@@ -38,8 +38,12 @@ return require('packer').startup(function(use)
       config = lua_path'nvim-gps' 
   }
 
+  -- NERDtree
+  use { 'preservim/nerdtree' }
+
   -- colorscheme
      use { 'sainnhe/gruvbox-material' }
+     use { 'folke/tokyonight.nvim' }
 
   -- Icons
   use { 'kyazdani42/nvim-web-devicons' }
@@ -52,7 +56,7 @@ return require('packer').startup(function(use)
   use { 'lewis6991/gitsigns.nvim', requires = {'nvim-lua/plenary.nvim'}, config = lua_path'gitsigns' }
 
   -- Code Commenter
-  use { 'preservim/nerdcommenter' }
+  use { 'tpope/vim-commentary' }
 
   -- Folke
   use { 'folke/trouble.nvim' }
