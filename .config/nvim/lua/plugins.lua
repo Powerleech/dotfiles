@@ -26,14 +26,20 @@ return require('packer').startup(function(use)
   use { 'ggandor/lightspeed.nvim', config = lua_path"lightspeed" }
 
 
+  -- folke
+  use { 'folke/trouble.nvim' }
+  use { 'folke/lsp-colors.nvim' }
+  use { 'folke/tokyonight.nvim' }
+  use { 'folke/which-key.nvim', config = lua_path'which-key' }
+
   -- LSP
   use { 'neovim/nvim-lspconfig' }
   use { 'weilbith/nvim-code-action-menu' }
   use { 'jose-elias-alvarez/null-ls.nvim' }
   use { 'L3MON4D3/LuaSnip' }
-  use { 'hrsh7th/nvim-cmp' }
+  use { 'hrsh7th/nvim-cmp', config = lua_path'cmp.lua' }
   use { 'jose-elias-alvarez/nvim-lsp-ts-utils' }
-
+  
   -- Treesitter
   use { 
       'SmiteshP/nvim-gps', 	
@@ -46,7 +52,6 @@ return require('packer').startup(function(use)
 
   -- colorscheme
      use { 'sainnhe/gruvbox-material' }
-     use { 'folke/tokyonight.nvim' }
 
   -- Icons
   use { 'kyazdani42/nvim-web-devicons' }
@@ -60,10 +65,6 @@ return require('packer').startup(function(use)
 
   -- Code Commenter
   use { 'tpope/vim-commentary' }
-
-  -- Folke
-  use { 'folke/trouble.nvim' }
-  use { 'folke/which-key.nvim', config = lua_path'which-key' }
 
   use { 'junegunn/fzf', run = ':call fzf#install()' }
   use { 'junegunn/fzf.vim', after = 'fzf', config = lua_path'fzf-vim' }
