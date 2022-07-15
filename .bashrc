@@ -40,4 +40,5 @@ source /usr/share/bash-completion/completions/git
 
 config config status.showUntrackedFiles no
 export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
+export EDITOR=~/.local/bin/bin/nvim
 # export PATH=$PATH:/home/myself/scripts/
