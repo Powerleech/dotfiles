@@ -42,5 +42,7 @@ map("n", "<C-p>g", ":Telescope git_files<CR>", { noremap = true, silent = true }
 map("n", "<C-f>", ":Rg<CR>", { noremap = true, silent = true })
 map("n", "<C-t>", ":e <cfile><CR>", { noremap = true, silent = true })
 map("n", "<S-tab>", ":bn<CR>", { noremap = true, silent = true })
+map("n", "<leader>d", ":TroubleToggle<CR>", { noremap = true, silent = true })
+map("n", "ga", ":CodeActionMenu<CR>", { noremap = true, silent = true })
 
 

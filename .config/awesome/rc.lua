@@ -582,7 +582,7 @@ globalkeys = mytable.join(
               {description = "run prompt", group = "launcher"}),
 
     -- rofi pass
-    awful.key({ altkey }, "p", function () awful.spawn("rofi-pass") end,
+    awful.key({ altkey }, "p", function () awful.spawn.with_shell("rofi-pass") end,
         {description = "rofi-pass", group = "launcher"})
 
    --[[ awful.key({ modkey }, "x",
