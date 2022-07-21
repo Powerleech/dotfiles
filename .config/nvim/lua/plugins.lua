@@ -1,19 +1,3 @@
--- vim.cmd [[packadd packer.nvim]]
-local execute = vim.api.nvim_command
-local fn = vim.fn
-
-local install_path = fn.stdpath('data') .. '/site/pack/packer/start/packer.nvim'
-
-if fn.empty(fn.glob(install_path)) > 0 then
-  execute('!git clone https://github.com/wbthomason/packer.nvim ' .. install_path)
-  execute 'packadd packer.nvim'
-end
-
-vim.api.nvim_create_autocmd('BufWritePost', {
-  pattern = 'plugins.lua',
-  command = 'source <afile> | PackerCompile',
-})
-
 require('packer').init({display = {auto_clean = false}})
 
 return require('packer').startup(function(use)
@@ -31,14 +15,29 @@ return require('packer').startup(function(use)
   use { 'folke/lsp-colors.nvim' }
   use { 'folke/tokyonight.nvim' }
   use { 'folke/which-key.nvim', config = lua_path'which-key' }
+  use { "onsails/lspkind-nvim" } 
 
   -- LSP
+  use { "williamboman/nvim-lsp-installer" }
   use { 'neovim/nvim-lspconfig' }
   use { 'weilbith/nvim-code-action-menu' }
   use { 'jose-elias-alvarez/null-ls.nvim' }
   use { 'L3MON4D3/LuaSnip' }
-  use { 'hrsh7th/nvim-cmp', config = lua_path'cmp.lua' }
   use { 'jose-elias-alvarez/nvim-lsp-ts-utils' }
+
+  -- cmp
+  use { 
+    'hrsh7th/nvim-cmp',
+    requires = {
+      "hrsh7th/cmp-nvim-lua",
+      "hrsh7th/cmp-nvim-lsp",
+      "hrsh7th/cmp-nvim-lsp-document-symbol",
+      "hrsh7th/cmp-buffer",
+      "saadparwaiz1/cmp_luasnip",
+      "hrsh7th/cmp-path",
+      },
+    config = lua_path'cmp-nvim'
+  }
   
   -- Treesitter
   use { 
@@ -64,7 +63,7 @@ return require('packer').startup(function(use)
   use { 'lewis6991/gitsigns.nvim', requires = {'nvim-lua/plenary.nvim'}, config = lua_path'gitsigns' }
 
   -- Code Commenter
-  use { 'tpope/vim-commentary' }
+   use { 'tpope/vim-commentary' }
 
   use { 'junegunn/fzf', run = ':call fzf#install()' }
   use { 'junegunn/fzf.vim', after = 'fzf', config = lua_path'fzf-vim' }

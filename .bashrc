@@ -11,7 +11,7 @@ export NVM_DIR="$([ -z "${XDG_CONFIG_HOME-}" ] && printf %s "${HOME}/.nvm" || pr
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" # This loads nvm
 alias config='/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME'
 alias ls='ls --color=auto'
-alias vim='~/.local/bin/bin/nvim'
+alias vim='nvim'
 alias vimrc='vim ~/.config/nvim/init.lua'
 alias plugins='vim ~/.config/nvim/lua/plugins.lua'
 alias bashrc='vim ~/.bashrc'
@@ -40,5 +40,5 @@ source /usr/share/bash-completion/completions/git
 
 config config status.showUntrackedFiles no
 export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
-export EDITOR=~/.local/bin/bin/nvim
+export EDITOR=nvim
 # export PATH=$PATH:/home/myself/scripts/

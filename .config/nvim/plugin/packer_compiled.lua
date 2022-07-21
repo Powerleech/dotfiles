@@ -74,6 +74,36 @@ _G.packer_plugins = {
     path = "/home/powerleech/.local/share/nvim/site/pack/packer/start/LuaSnip",
     url = "https://github.com/L3MON4D3/LuaSnip"
   },
+  ["cmp-buffer"] = {
+    loaded = true,
+    path = "/home/powerleech/.local/share/nvim/site/pack/packer/start/cmp-buffer",
+    url = "https://github.com/hrsh7th/cmp-buffer"
+  },
+  ["cmp-nvim-lsp"] = {
+    loaded = true,
+    path = "/home/powerleech/.local/share/nvim/site/pack/packer/start/cmp-nvim-lsp",
+    url = "https://github.com/hrsh7th/cmp-nvim-lsp"
+  },
+  ["cmp-nvim-lsp-document-symbol"] = {
+    loaded = true,
+    path = "/home/powerleech/.local/share/nvim/site/pack/packer/start/cmp-nvim-lsp-document-symbol",
+    url = "https://github.com/hrsh7th/cmp-nvim-lsp-document-symbol"
+  },
+  ["cmp-nvim-lua"] = {
+    loaded = true,
+    path = "/home/powerleech/.local/share/nvim/site/pack/packer/start/cmp-nvim-lua",
+    url = "https://github.com/hrsh7th/cmp-nvim-lua"
+  },
+  ["cmp-path"] = {
+    loaded = true,
+    path = "/home/powerleech/.local/share/nvim/site/pack/packer/start/cmp-path",
+    url = "https://github.com/hrsh7th/cmp-path"
+  },
+  cmp_luasnip = {
+    loaded = true,
+    path = "/home/powerleech/.local/share/nvim/site/pack/packer/start/cmp_luasnip",
+    url = "https://github.com/saadparwaiz1/cmp_luasnip"
+  },
   ["feline.nvim"] = {
     config = { 'require"plugins.feline"' },
     loaded = true,
@@ -115,6 +145,11 @@ _G.packer_plugins = {
     path = "/home/powerleech/.local/share/nvim/site/pack/packer/start/lsp-colors.nvim",
     url = "https://github.com/folke/lsp-colors.nvim"
   },
+  ["lspkind-nvim"] = {
+    loaded = true,
+    path = "/home/powerleech/.local/share/nvim/site/pack/packer/start/lspkind-nvim",
+    url = "https://github.com/onsails/lspkind-nvim"
+  },
   nerdtree = {
     loaded = true,
     path = "/home/powerleech/.local/share/nvim/site/pack/packer/start/nerdtree",
@@ -126,6 +161,7 @@ _G.packer_plugins = {
     url = "https://github.com/jose-elias-alvarez/null-ls.nvim"
   },
   ["nvim-cmp"] = {
+    config = { 'require"plugins.cmp-nvim"' },
     loaded = true,
     path = "/home/powerleech/.local/share/nvim/site/pack/packer/start/nvim-cmp",
     url = "https://github.com/hrsh7th/nvim-cmp"
@@ -158,6 +194,11 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/powerleech/.local/share/nvim/site/pack/packer/start/nvim-gps",
     url = "https://github.com/SmiteshP/nvim-gps"
+  },
+  ["nvim-lsp-installer"] = {
+    loaded = true,
+    path = "/home/powerleech/.local/share/nvim/site/pack/packer/start/nvim-lsp-installer",
+    url = "https://github.com/williamboman/nvim-lsp-installer"
   },
   ["nvim-lsp-ts-utils"] = {
     loaded = true,
@@ -245,46 +286,50 @@ _G.packer_plugins = {
 }
 
 time([[Defining packer_plugins]], false)
--- Config for: nvim-dap
-time([[Config for nvim-dap]], true)
-require"plugins.nvim-dap"
-time([[Config for nvim-dap]], false)
--- Config for: nvim-neoclip.lua
-time([[Config for nvim-neoclip.lua]], true)
-require"plugins.nvim-neoclip"
-time([[Config for nvim-neoclip.lua]], false)
--- Config for: lightspeed.nvim
-time([[Config for lightspeed.nvim]], true)
-require"plugins.lightspeed"
-time([[Config for lightspeed.nvim]], false)
 -- Config for: nvim-dap-ui
 time([[Config for nvim-dap-ui]], true)
 require"plugins.nvim-dap-ui"
 time([[Config for nvim-dap-ui]], false)
--- Config for: nvim-dap-virtual-text
-time([[Config for nvim-dap-virtual-text]], true)
-require"plugins.nvim-dap-virtual-text"
-time([[Config for nvim-dap-virtual-text]], false)
--- Config for: which-key.nvim
-time([[Config for which-key.nvim]], true)
-require"plugins.which-key"
-time([[Config for which-key.nvim]], false)
--- Config for: telescope.nvim
-time([[Config for telescope.nvim]], true)
-require"plugins.telescope"
-time([[Config for telescope.nvim]], false)
--- Config for: nvim-gps
-time([[Config for nvim-gps]], true)
-require"plugins.nvim-gps"
-time([[Config for nvim-gps]], false)
--- Config for: gitsigns.nvim
-time([[Config for gitsigns.nvim]], true)
-require"plugins.gitsigns"
-time([[Config for gitsigns.nvim]], false)
+-- Config for: nvim-cmp
+time([[Config for nvim-cmp]], true)
+require"plugins.cmp-nvim"
+time([[Config for nvim-cmp]], false)
+-- Config for: lightspeed.nvim
+time([[Config for lightspeed.nvim]], true)
+require"plugins.lightspeed"
+time([[Config for lightspeed.nvim]], false)
 -- Config for: feline.nvim
 time([[Config for feline.nvim]], true)
 require"plugins.feline"
 time([[Config for feline.nvim]], false)
+-- Config for: which-key.nvim
+time([[Config for which-key.nvim]], true)
+require"plugins.which-key"
+time([[Config for which-key.nvim]], false)
+-- Config for: nvim-dap-virtual-text
+time([[Config for nvim-dap-virtual-text]], true)
+require"plugins.nvim-dap-virtual-text"
+time([[Config for nvim-dap-virtual-text]], false)
+-- Config for: nvim-gps
+time([[Config for nvim-gps]], true)
+require"plugins.nvim-gps"
+time([[Config for nvim-gps]], false)
+-- Config for: nvim-dap
+time([[Config for nvim-dap]], true)
+require"plugins.nvim-dap"
+time([[Config for nvim-dap]], false)
+-- Config for: gitsigns.nvim
+time([[Config for gitsigns.nvim]], true)
+require"plugins.gitsigns"
+time([[Config for gitsigns.nvim]], false)
+-- Config for: telescope.nvim
+time([[Config for telescope.nvim]], true)
+require"plugins.telescope"
+time([[Config for telescope.nvim]], false)
+-- Config for: nvim-neoclip.lua
+time([[Config for nvim-neoclip.lua]], true)
+require"plugins.nvim-neoclip"
+time([[Config for nvim-neoclip.lua]], false)
 -- Load plugins in order defined by `after`
 time([[Sequenced loading]], true)
 vim.cmd [[ packadd fzf ]]
