@@ -116,21 +116,21 @@ theme.cal = lain.widget.cal({
 local mailicon = wibox.widget.imagebox(theme.widget_mail)
 -- commented because it needs to be set before use
 mailicon:buttons(my_table.join(awful.button({ }, 1, function () awful.spawn(mail) end)))
-theme.mail = lain.widget.imap({
-    timeout  = 180,
-    server   = "imap.gmail.com:993/ssl/moneyhonster@gmail.com",
-    mail     = "mail",
-    password = "keyring get mail",
-    settings = function()
-        if mailcount > 0 then
-            widget:set_markup(markup.font(theme.font, " " .. mailcount .. " "))
-            mailicon:set_image(theme.widget_mail_on)
-        else
-            widget:set_text("")
-            mailicon:set_image(theme.widget_mail)
-        end
-    end
-})
+-- theme.mail = lain.widget.imap({
+--     timeout  = 180,
+--     server   = "imap.gmail.com:993/ssl/moneyhonster@gmail.com",
+--     mail     = "mail",
+--     password = "keyring get mail",
+--     settings = function()
+--         if mailcount > 0 then
+--             widget:set_markup(markup.font(theme.font, " " .. mailcount .. " "))
+--             mailicon:set_image(theme.widget_mail_on)
+--         else
+--             widget:set_text("")
+--             mailicon:set_image(theme.widget_mail)
+--         end
+--     end
+-- })
 
 -- MPD
 local musicplr = awful.util.terminal .. " -title Music -e ncmpcpp"
@@ -327,7 +327,7 @@ function theme.at_screen_connect(s)
             theme.volume.widget,
             arrl_ld,
             wibox.container.background(mailicon, theme.bg_focus),
-           --wibox.container.background(theme.mail.widget, theme.bg_focus),
+            -- wibox.container.background(theme.mail.widget, theme.bg_focus),
             arrl_dl,
             memicon,
             mem.widget,
@@ -339,7 +339,7 @@ function theme.at_screen_connect(s)
             temp.widget,
             arrl_ld,
             wibox.container.background(fsicon, theme.bg_focus),
-            --wibox.container.background(theme.fs.widget, theme.bg_focus),
+            -- wibox.container.background(theme.fs.widget, theme.bg_focus),
             arrl_dl,
             baticon,
             bat.widget,

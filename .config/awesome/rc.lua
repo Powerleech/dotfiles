@@ -71,6 +71,7 @@ end
 run_once(
     {
         "unclutter -root",
+        "iwgtk -i",
         -- "picom",
         "greenclip daemon"
     }
@@ -121,7 +122,6 @@ local browser      = "google-chrome-stable"
 local rofi_emoji_cmd = "rofi -dpi " .. dpi(80) .. " -show emoji -modi emoji"
 local rofi_cmd = "rofi -dpi " .. dpi(80) .. " -combi-modi window,drun -show combi"
 local greenclip_cmd = "rofi -dpi " .. dpi(80) .. " -modi 'clipboard:greenclip print' -show clipboard -run-command '{cmd}' "
-
 awful.util.terminal = terminal
 awful.util.tagnames = { "1", "2", "3", "4", "5" }
 awful.layout.layouts = {
@@ -771,8 +771,8 @@ awful.rules.rules = {
     },
 
     -- Set Firefox to always map on the tag named "2" on screen 1.
-    { rule = { class = "chrome" },
-      properties = { screen = 1, tag = "2" } },
+    -- { rule = { class = "chrome" },
+    --   properties = { screen = , tag = "2" } },
 }
 
 -- }}}
