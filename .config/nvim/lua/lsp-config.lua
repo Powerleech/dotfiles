@@ -1,3 +1,4 @@
+require("nvim-lsp-installer").setup({})
 local lspconfig = require("lspconfig")
 local null_ls = require("null-ls")
 local buf_map = function(bufnr, mode, lhs, rhs, opts)
@@ -9,7 +10,7 @@ vim.lsp.set_log_level("debug")
 local on_attach = function(client, bufnr)
     local function buf_set_option(...) vim.api.nvim_buf_set_option(bufnr, ...) end
 
-    vim.api.nvim_buf_set_option(bufnr, 'omnifunc', 'v:lua.vim.lsp.omnifunc')
+    vim.api.nvim_buf_set_option(bufnr, "omnifunc", "v:lua.vim.lsp.omnifunc")
 
     vim.cmd("command! LspDef lua vim.lsp.buf.definition()")
     vim.cmd("command! LspFormatting lua vim.lsp.buf.formatting()")
@@ -74,3 +75,40 @@ lspconfig.tsserver.setup({
         on_attach(client, bufnr)
     end
 })
+
+require"lspconfig".sumneko_lua.setup({
+  settings = {
+    Lua = {
+      runtime = {
+        -- Tell the language server which version of Lua you"re using (most likely LuaJIT in the case of Neovim)
+        version = "LuaJIT",
+      },
+      diagnostics = {
+        -- Get the language server to recognize the `vim` global
+        globals = {
+          "vim", --VIM
+          "use", --packer key
+          -- Awesome
+          "awesome",
+          "client",
+          "root"
+        },
+      },
+      workspace = {
+        -- Make the server aware of Neovim runtime files
+        library = {
+          vim.api.nvim_get_runtime_file("", true),
+          ["/usr/share/nvim/runtime/lua"] = true,
+          ["/usr/share/nvim/runtime/lua/lsp"] = true,
+          ["/usr/share/awesome/lib"] = true
+        }
+      },
+      -- Do not send telemetry data containing a randomized but unique identifier
+      telemetry = {
+        enable = false,
+      },
+    },
+  },
+})
+-- }}}
+

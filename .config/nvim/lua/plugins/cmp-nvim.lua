@@ -1,7 +1,15 @@
+vim.opt.completeopt = {'menu', 'menuone', 'noselect'}
+require("luasnip.loaders.from_vscode").lazy_load()
 local cmp = require'cmp'
 local lspkind = require'lspkind'
+local luasnip = require'luasnip'
 
 cmp.setup({
+  snippet = {
+      expand = function(args)
+        require'luasnip'.lsp_expand(args.body)
+      end
+    },
   mapping = {
     ["<C-b>"] = cmp.mapping.scroll_docs(-4),
     ["<C-f>"] = cmp.mapping.scroll_docs(4),
