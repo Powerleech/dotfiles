@@ -24,6 +24,7 @@ local hotkeys_popup = require("awful.hotkeys_popup")
                       require("awful.hotkeys_popup.keys")
 local mytable       = awful.util.table or gears.table -- 4.{0,1} compatibility
 local dpi = beautiful.xresources.apply_dpi
+-- local net_widgets = require("net_widgets")
 -- }}}
 
 -- {{{ Error handling
@@ -189,6 +190,15 @@ awful.util.tasklist_buttons = mytable.join(
 
 beautiful.init(string.format("%s/.config/awesome/themes/%s/theme.lua", os.getenv("HOME"), chosen_theme))
 
+
+-- this has to load after `beautiful.init`, it doesn't work in theme film and I 
+-- don't know how to append it to the wibox
+-- net_wireless = net_widgets.wireless(
+--   { 
+--     interface   = "wlp3s0",
+--     onclick     = terminal .. " -e iwgtk" 
+--   }
+-- )
 -- }}}
 
 -- {{{ Menu
@@ -829,6 +839,7 @@ client.connect_signal("request::titlebars", function(c)
             layout  = wibox.layout.flex.horizontal
         },
         { -- Right
+            -- net_wireless,
             awful.titlebar.widget.floatingbutton (c),
             awful.titlebar.widget.maximizedbutton(c),
             awful.titlebar.widget.stickybutton   (c),

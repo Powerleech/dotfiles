@@ -7,7 +7,9 @@ return require('packer').startup(function(use)
     return string.format('require"plugins.%s"', name)
   end
 
-  use { 'ggandor/lightspeed.nvim', config = lua_path"lightspeed" }
+  use { 'ggandor/lightspeed.nvim', config = lua_path'lightspeed' }
+  -- use { "williamboman/mason.nvim", config = lua_path'mason-nvim' }
+  -- use { "williamboman/mason-lspconfig.nvim", config = lua_path"mason-lspconfig-nvim" }
 
 
   -- folke
@@ -15,18 +17,18 @@ return require('packer').startup(function(use)
   use { 'folke/lsp-colors.nvim' }
   use { 'folke/tokyonight.nvim' }
   use { 'folke/which-key.nvim', config = lua_path'which-key' }
-  use { "onsails/lspkind-nvim" } 
+  use { "onsails/lspkind-nvim" }
 
   -- LSP
-  use { "williamboman/nvim-lsp-installer" }
   use { 'neovim/nvim-lspconfig' }
   use { 'weilbith/nvim-code-action-menu' }
   use { 'jose-elias-alvarez/null-ls.nvim' }
   use { 'L3MON4D3/LuaSnip' }
   use { 'jose-elias-alvarez/nvim-lsp-ts-utils' }
+  use { 'williamboman/nvim-lsp-installer' }
 
   -- cmp
-  use { 
+  use {
     'hrsh7th/nvim-cmp',
     requires = {
       "hrsh7th/cmp-nvim-lua",
@@ -38,12 +40,12 @@ return require('packer').startup(function(use)
       },
     config = lua_path'cmp-nvim'
   }
-  
+
   -- Treesitter
-  use { 
-      'SmiteshP/nvim-gps', 	
+  use {
+      'SmiteshP/nvim-gps',
       requires = 'nvim-treesitter/nvim-treesitter',
-      config = lua_path'nvim-gps' 
+      config = lua_path'nvim-gps'
   }
 
   -- NERDtree
@@ -72,17 +74,17 @@ return require('packer').startup(function(use)
   use { 'AckslD/nvim-neoclip.lua', config = lua_path"nvim-neoclip" }
 
  -- Telescope
-  use { 
-      'nvim-telescope/telescope.nvim', 
+  use {
+      'nvim-telescope/telescope.nvim',
       requires = {
-         'nvim-lua/popup.nvim', 
-         'nvim-lua/plenary.nvim', 
-         'cljoly/telescope-repo.nvim', 
-         'nvim-telescope/telescope-dap.nvim', 
+         'nvim-lua/popup.nvim',
+         'nvim-lua/plenary.nvim',
+         'cljoly/telescope-repo.nvim',
+         'nvim-telescope/telescope-dap.nvim',
          'nvim-telescope/telescope-live-grep-args.nvim',
          'nvim-telescope/telescope-dap.nvim'
       },
-      config = lua_path'telescope' 
+      config = lua_path'telescope'
   }
 
   -- Debugger
