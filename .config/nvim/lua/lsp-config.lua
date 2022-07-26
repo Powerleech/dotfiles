@@ -76,12 +76,17 @@ lspconfig.tsserver.setup({
     end
 })
 
+local runtime_path = vim.split(package.path, ';')
+table.insert(runtime_path, 'lua/?.lua')
+table.insert(runtime_path, 'lua/?/init.lua')
+
 require"lspconfig".sumneko_lua.setup({
   settings = {
     Lua = {
       runtime = {
         -- Tell the language server which version of Lua you"re using (most likely LuaJIT in the case of Neovim)
         version = "LuaJIT",
+        path = runtime_path,
       },
       diagnostics = {
         -- Get the language server to recognize the `vim` global
@@ -100,7 +105,8 @@ require"lspconfig".sumneko_lua.setup({
           vim.api.nvim_get_runtime_file("", true),
           ["/usr/share/nvim/runtime/lua"] = true,
           ["/usr/share/nvim/runtime/lua/lsp"] = true,
-          ["/usr/share/awesome/lib"] = true
+          ["/usr/share/awesome/lib"] = true,
+          ["~/.config/awesome"] = true
         }
       },
       -- Do not send telemetry data containing a randomized but unique identifier
