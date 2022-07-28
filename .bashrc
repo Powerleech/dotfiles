@@ -19,6 +19,7 @@ alias rclua='vim ~/.config/awesome/rc.lua'
 alias lspconfig='vim ~/.config/nvim/lua/lsp-config.lua'
 alias config-commit='config add -u && config commit -m'
 alias bluetooth-on='echo "power on"; echo "connect 38:18:4C:16:A4:82"; echo "connect 38:18:4C:16:A4:82" | bluetoothctl'
+alias vawesome='cd ~/.config/awesome/ && vim'
 
 # stolen from https://salferrarello.com/using-vim-view-git-commits/
 alias 'git-log'="git log --graph --pretty=format:'%h - %d %s (%cr) <%an>' | nvim -R -c 'set hidden nowrap keywordprg=:enew\ \|\ terminal\ \git\ --no-pager\ show | nnoremap q :bd!<cr>' -"
@@ -42,3 +43,5 @@ config config status.showUntrackedFiles no
 export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
 export EDITOR=nvim
 # export PATH=$PATH:/home/myself/scripts/
+set -o vi
+
