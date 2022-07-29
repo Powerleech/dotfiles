@@ -43,7 +43,7 @@ left_panel.create = function(s)
    panel = awful.wibar({
       screen = s,
       position = "left",
-      height = s.geometry.height * 7/10,
+      height = s.geometry.height,
       width = beautiful.left_panel_width,
       ontop = true,
       shape = panel_shape
@@ -58,15 +58,15 @@ left_panel.create = function(s)
          -- add taglist widget
          tag_list.create(s),
          -- add folders widgets
-         {
-            separator,
-            folder.create(home_dir),
-            folder.create(home_dir .. "/Documents"),
-            folder.create(home_dir .. "/Downloads"),
-            separator,
-            folder.create("trash://"),
-            layout = wibox.layout.fixed.vertical,
-         }
+         -- {
+         --    separator,
+         --    folder.create(home_dir),
+         --    folder.create(home_dir .. "/Documents"),
+         --    folder.create(home_dir .. "/Downloads"),
+         --    separator,
+         --    folder.create("trash://"),
+         --    layout = wibox.layout.fixed.vertical,
+         -- }
       },
       nil
    }

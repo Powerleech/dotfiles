@@ -15,10 +15,9 @@ local beautiful = require("beautiful")
 local wibox = require("wibox")
 local gears = require("gears")
 local dpi = beautiful.xresources.apply_dpi
-
 -- import widgets
 local task_list = require("widgets.task-list")
-
+local mail = require("widgets.email")
 -- define module table
 local top_panel = {}
 
@@ -44,7 +43,9 @@ top_panel.create = function(s)
       require("widgets.calendar").create(s),
       {
          layout = wibox.layout.fixed.horizontal,
-         wibox.layout.margin(wibox.widget.systray(), dpi(5), dpi(5), dpi(5), dpi(5)),
+         -- wibox.layout.margin(wibox.widget.systray(), dpi(5), dpi(5), dpi(5), dpi(5)),
+         mail.icon,top
+         mail.widget,
          require("widgets.bluetooth"),
          require("widgets.network")(),
          require("widgets.battery"),
