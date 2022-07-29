@@ -11,7 +11,6 @@ local on_attach = function(client, bufnr)
     local function buf_set_option(...) vim.api.nvim_buf_set_option(bufnr, ...) end
 
     vim.api.nvim_buf_set_option(bufnr, "omnifunc", "v:lua.vim.lsp.omnifunc")
-
     vim.cmd("command! LspDef lua vim.lsp.buf.definition()")
     vim.cmd("command! LspFormatting lua vim.lsp.buf.formatting()")
     vim.cmd("command! LspHover lua vim.lsp.buf.hover()")
@@ -76,9 +75,9 @@ lspconfig.tsserver.setup({
     end
 })
 
-local runtime_path = vim.split(package.path, ';')
-table.insert(runtime_path, 'lua/?.lua')
-table.insert(runtime_path, 'lua/?/init.lua')
+-- local runtime_path = vim.split(package.path, ';')
+-- table.insert(runtime_path, 'lua/?.lua')
+-- table.insert(runtime_path, 'lua/?/init.lua')
 
 require"lspconfig".sumneko_lua.setup({
   settings = {
@@ -86,7 +85,7 @@ require"lspconfig".sumneko_lua.setup({
       runtime = {
         -- Tell the language server which version of Lua you"re using (most likely LuaJIT in the case of Neovim)
         version = "LuaJIT",
-        path = runtime_path,
+        -- path = runtime_path,
       },
       diagnostics = {
         -- Get the language server to recognize the `vim` global
@@ -106,7 +105,6 @@ require"lspconfig".sumneko_lua.setup({
           ["/usr/share/nvim/runtime/lua"] = true,
           ["/usr/share/nvim/runtime/lua/lsp"] = true,
           ["/usr/share/awesome/lib"] = true,
-          ["~/.config/awesome"] = true
         }
       },
       -- Do not send telemetry data containing a randomized but unique identifier
