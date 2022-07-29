@@ -16,6 +16,8 @@ local gears = require("gears")
 local naughty = require("naughty")
 local beautiful = require("beautiful")
 local dpi = beautiful.xresources.apply_dpi
+local hotkeys_popup = require("awful.hotkeys_popup")
+require("awful.hotkeys_popup.keys")
 
 -- Define mod keys
 local modkey = "Mod4"
@@ -269,10 +271,10 @@ keys.globalkeys = gears.table.join(
    -- =========================================
 
 --     -- Show help
---     awful.key({ modkey,           }, "s",
---       hotkeys_popup.show_help,
-      -- {description="show help", group="awesome"}
-    -- ),
+    awful.key({ modkey,           }, "s",
+      hotkeys_popup.show_help,
+      {description="show help", group="awesome"}
+    ),
 
    -- Reload Awesome
    awful.key({modkey, "Shift"}, "r",
@@ -600,7 +602,7 @@ keys.clientkeys = gears.table.join(
    ),
 
    -- close client
-   awful.key({modkey}, "q",
+   awful.key({modkey, "Shift"}, "q",
       function(c)
          c:kill()
       end,
