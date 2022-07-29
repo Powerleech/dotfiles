@@ -46,7 +46,12 @@ local function show_emails()
     )
 end
 
+local function onclick()
+  awful.spawn.with_shell("google-chrome-stable gmail.com")
+end
+
 email_icon:connect_signal("mouse::enter", function() show_emails() end)
+email_icon:connect_signal("button::press", function() onclick() end)
 mail.icon = email_icon
 mail.widget = email_widget
 return mail 

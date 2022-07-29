@@ -1,14 +1,14 @@
 -- temp: https://github.com/crivotz/nv-ide/blob/master/lua/settings/init.lua
 -- highlight ColorColumn ctermbg=0 guibg=lightgrey
 local o = vim.opt
-
+-- hello world 
 o.termguicolors = true -- virker det her
 o.relativenumber = true 
 o.hlsearch = true
 o.hidden = true 
 o.tabstop = 4
 o.undofile = true
-o.undodir = '~/.config/nvim/undo-dir'
+o.undodir = { vim.env.XDG_DATA_HOME or vim.fn.expand("~/.config") .. "/nvim/undo//" }
 o.cursorline = true
 o.autowrite = true -- auto write buffer when it's not focued
 o.autoindent = true
