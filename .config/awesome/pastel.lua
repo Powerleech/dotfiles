@@ -23,7 +23,7 @@ local pastel = {}
 
 pastel.initialize = function()
    -- Import components
-   require("components.pastel.wallpaper")
+   gears.wallpaper.maximized("/home/powerleech/.active-wallpaper/wallpaper.jpg")
    require("components.exit-screen")
    require("components.volume-adjust")
 

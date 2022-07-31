@@ -301,7 +301,7 @@ keys.globalkeys = gears.table.join(
    awful.key({modkey, "Shift"}, "w",
       function()
         awful.spawn.with_shell("sh /home/powerleech/scripts/setRandomWallpaper.sh")
-        gears.wallpaper.maximized("/home/powerleech/.wallpapers/active/wallpaper.jpg")
+        gears.wallpaper.maximized("/home/powerleech/.active-wallpaper/wallpaper.jpg")
       end,
       {description = "change wallpaper", group = "hotkeys"}
     ),
