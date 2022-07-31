@@ -1,4 +1,6 @@
-require("nvim-lsp-installer").setup({})
+require("nvim-lsp-installer").setup({
+  automatic_installation = true
+})
 local lspconfig = require("lspconfig")
 local null_ls = require("null-ls")
 local buf_map = function(bufnr, mode, lhs, rhs, opts)
@@ -6,7 +8,6 @@ local buf_map = function(bufnr, mode, lhs, rhs, opts)
         silent = true,
     })
 end
-vim.lsp.set_log_level("debug")
 local on_attach = function(client, bufnr)
     local function buf_set_option(...) vim.api.nvim_buf_set_option(bufnr, ...) end
 
@@ -30,17 +31,11 @@ local on_attach = function(client, bufnr)
     buf_map(bufnr, "n", "gu", ":LspRefs<CR>")
     buf_map(bufnr, "n", "gi", ":LspImplementation<CR>")
     buf_map(bufnr, "i", "<C-x><C-x>", "<cmd> LspSignatureHelp<CR>")
-        if client.server_capabilities.document_formatting then
-        vim.cmd("autocmd BufWritePre <buffer> lua vim.lsp.buf.formatting_sync()")
-    end
-    -- if client.server_capabilities.document_formatting then
-    --     buf_set_keymap("n", "<leader>lf", "<cmd>lua vim.lsp.buf.formatting()<CR>", opts)
-    -- elseif client.server_capabilities.document_range_formatting then
-    --     buf_set_keymap("n", "<leader>lf", "<cmd>lua vim.lsp.buf.range_formatting()<CR>", opts)
-    -- end
 end
 
+-- nvim-cmp supports additional completion capabilities
 local capabilities = vim.lsp.protocol.make_client_capabilities()
+capabilities = require('cmp_nvim_lsp').update_capabilities(capabilities)
 
 -- Code actions
 capabilities.textDocument.codeAction = {
@@ -75,44 +70,31 @@ lspconfig.tsserver.setup({
     end
 })
 
--- local runtime_path = vim.split(package.path, ';')
--- table.insert(runtime_path, 'lua/?.lua')
--- table.insert(runtime_path, 'lua/?/init.lua')
+local runtime_path = vim.split(package.path, ';')
+table.insert(runtime_path, 'lua/?.lua')
+table.insert(runtime_path, 'lua/?/init.lua')
 
 require"lspconfig".sumneko_lua.setup({
   settings = {
     Lua = {
       runtime = {
-        -- Tell the language server which version of Lua you"re using (most likely LuaJIT in the case of Neovim)
-        version = "LuaJIT",
-        -- path = runtime_path,
+       version = "LuaJIT",
+        path = runtime_path,
       },
       diagnostics = {
-        -- Get the language server to recognize the `vim` global
         globals = {
           "vim", --VIM
           "use", --packer key
-          -- Awesome
           "awesome",
-          "client",
-          "root"
         },
       },
       workspace = {
         -- Make the server aware of Neovim runtime files
         library = {
           vim.api.nvim_get_runtime_file("", true),
-          ["/usr/share/nvim/runtime/lua"] = true,
-          ["/usr/share/nvim/runtime/lua/lsp"] = true,
-          ["/usr/share/awesome/lib"] = true,
         }
-      },
-      -- Do not send telemetry data containing a randomized but unique identifier
-      telemetry = {
-        enable = false,
-      },
+      }
     },
   },
 })
--- }}}
 

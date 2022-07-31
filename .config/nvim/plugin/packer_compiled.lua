@@ -134,6 +134,12 @@ _G.packer_plugins = {
     path = "/home/powerleech/.local/share/nvim/site/pack/packer/start/gruvbox-material",
     url = "https://github.com/sainnhe/gruvbox-material"
   },
+  ["inc-rename.nvim"] = {
+    config = { "\27LJ\2\n8\0\0\3\0\3\0\0066\0\0\0'\2\1\0B\0\2\0029\0\2\0B\0\1\1K\0\1\0\nsetup\15inc_rename\frequire\0" },
+    loaded = true,
+    path = "/home/powerleech/.local/share/nvim/site/pack/packer/start/inc-rename.nvim",
+    url = "https://github.com/smjonas/inc-rename.nvim"
+  },
   ["lightspeed.nvim"] = {
     config = { 'require"plugins.lightspeed"' },
     loaded = true,
@@ -286,34 +292,10 @@ _G.packer_plugins = {
 }
 
 time([[Defining packer_plugins]], false)
--- Config for: telescope.nvim
-time([[Config for telescope.nvim]], true)
-require"plugins.telescope"
-time([[Config for telescope.nvim]], false)
--- Config for: nvim-cmp
-time([[Config for nvim-cmp]], true)
-require"plugins.cmp-nvim"
-time([[Config for nvim-cmp]], false)
--- Config for: gitsigns.nvim
-time([[Config for gitsigns.nvim]], true)
-require"plugins.gitsigns"
-time([[Config for gitsigns.nvim]], false)
--- Config for: nvim-dap
-time([[Config for nvim-dap]], true)
-require"plugins.nvim-dap"
-time([[Config for nvim-dap]], false)
--- Config for: nvim-dap-ui
-time([[Config for nvim-dap-ui]], true)
-require"plugins.nvim-dap-ui"
-time([[Config for nvim-dap-ui]], false)
 -- Config for: lightspeed.nvim
 time([[Config for lightspeed.nvim]], true)
 require"plugins.lightspeed"
 time([[Config for lightspeed.nvim]], false)
--- Config for: nvim-dap-virtual-text
-time([[Config for nvim-dap-virtual-text]], true)
-require"plugins.nvim-dap-virtual-text"
-time([[Config for nvim-dap-virtual-text]], false)
 -- Config for: which-key.nvim
 time([[Config for which-key.nvim]], true)
 require"plugins.which-key"
@@ -330,6 +312,34 @@ time([[Config for feline.nvim]], false)
 time([[Config for nvim-neoclip.lua]], true)
 require"plugins.nvim-neoclip"
 time([[Config for nvim-neoclip.lua]], false)
+-- Config for: nvim-cmp
+time([[Config for nvim-cmp]], true)
+require"plugins.cmp-nvim"
+time([[Config for nvim-cmp]], false)
+-- Config for: telescope.nvim
+time([[Config for telescope.nvim]], true)
+require"plugins.telescope"
+time([[Config for telescope.nvim]], false)
+-- Config for: inc-rename.nvim
+time([[Config for inc-rename.nvim]], true)
+try_loadstring("\27LJ\2\n8\0\0\3\0\3\0\0066\0\0\0'\2\1\0B\0\2\0029\0\2\0B\0\1\1K\0\1\0\nsetup\15inc_rename\frequire\0", "config", "inc-rename.nvim")
+time([[Config for inc-rename.nvim]], false)
+-- Config for: gitsigns.nvim
+time([[Config for gitsigns.nvim]], true)
+require"plugins.gitsigns"
+time([[Config for gitsigns.nvim]], false)
+-- Config for: nvim-dap
+time([[Config for nvim-dap]], true)
+require"plugins.nvim-dap"
+time([[Config for nvim-dap]], false)
+-- Config for: nvim-dap-virtual-text
+time([[Config for nvim-dap-virtual-text]], true)
+require"plugins.nvim-dap-virtual-text"
+time([[Config for nvim-dap-virtual-text]], false)
+-- Config for: nvim-dap-ui
+time([[Config for nvim-dap-ui]], true)
+require"plugins.nvim-dap-ui"
+time([[Config for nvim-dap-ui]], false)
 -- Load plugins in order defined by `after`
 time([[Sequenced loading]], true)
 vim.cmd [[ packadd fzf ]]

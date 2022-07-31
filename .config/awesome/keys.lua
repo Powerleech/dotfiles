@@ -156,46 +156,46 @@ keys.globalkeys = gears.table.join(
       {description = "application launcher", group = "launcher"}
    ),
        -- User programs
-    awful.key({ modkey }, "q", 
-      function () 
-        awful.spawn(browser) 
+    awful.key({ modkey }, "q",
+      function ()
+        awful.spawn(browser)
       end,
       {description = "run browser", group = "launcher"}
     ),
 
-    awful.key({ altkey }, "w", 
-      function () 
-        awful.spawn(rofi_cmd) 
+    awful.key({ altkey }, "w",
+      function ()
+        awful.spawn(rofi_cmd)
       end,
       {description = "rofi", group = "launcher"}
     ),
 
-    awful.key({ altkey }, "z", 
-      function () 
-        awful.spawn(greenclip_cmd) 
+    awful.key({ altkey }, "z",
+      function ()
+        awful.spawn(greenclip_cmd)
       end,
       {description = "clipboard history", group = "launcher"}
     ),
     --  rofi emoji
-    awful.key({ altkey }, "e", 
-      function () 
-        awful.spawn(rofi_emoji_cmd) 
+    awful.key({ altkey }, "e",
+      function ()
+        awful.spawn(rofi_emoji_cmd)
       end,
       {description = "emojipicker", group = "launcher"}
     ),
 
     -- Prompt
-    awful.key({ modkey }, "r", 
-      function () 
-        awful.screen.focused().mypromptbox:run() 
+    awful.key({ modkey }, "r",
+      function ()
+        awful.screen.focused().mypromptbox:run()
       end,
       {description = "run prompt", group = "launcher"}
     ),
 
     -- rofi pass
-    awful.key({ altkey }, "p", 
-      function () 
-        awful.spawn.with_shell("rofi-pass") 
+    awful.key({ altkey }, "p",
+      function ()
+        awful.spawn.with_shell("rofi-pass")
       end,
       {description = "rofi-pass", group = "launcher"}
     ),
@@ -298,7 +298,26 @@ keys.globalkeys = gears.table.join(
       end,
       {description = "toggle exit screen", group = "hotkeys"}
    ),
-
+   awful.key({modkey, "Shift"}, "w",
+      function()
+        awful.spawn.with_shell("sh /home/powerleech/scripts/setRandomWallpaper.sh")
+        gears.wallpaper.maximized("/home/powerleech/.wallpapers/active/wallpaper.jpg")
+      end,
+      {description = "change wallpaper", group = "hotkeys"}
+    ),
+    awful.key({modkey, "Shift"}, "t",
+        function()
+          -- check if the current theme is pastel
+          local one = "cat ~/.config/awesome/rc.lua | grep -i 'local theme = themes\\[1\\]' &> /dev/null"
+          -- if the theme is pastel, change to mirage
+          local two = "sed -i 's/local theme = themes\\[1\\]/local theme = themes\\[2\\]/' ~/.config/awesome/rc.lua"
+          -- it the theme is mirage, change to pastel
+          local three = "sed -i 's/local theme = themes\\[2\\]/local theme = themes\\[1\\]/' ~/.config/awesome/rc.lua;"
+          local four = "echo 'awesome.restart()' | awesome-client;"
+          awful.spawn.with_shell(one .. " && " .. two .. " || " .. three .. four)
+        end,
+        {description = "change theme", group = "hotkeys"}
+    ),
    -- =========================================
    -- CLIENT FOCUSING
    -- =========================================

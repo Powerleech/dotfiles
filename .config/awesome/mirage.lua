@@ -23,7 +23,7 @@ local mirage = {}
 
 mirage.initialize = function()
    -- Set Wallpaper
-   gears.wallpaper.maximized(gears.filesystem.get_configuration_dir() .. "/wallpaper/mirage.png")
+   gears.wallpaper.maximized("/home/powerleech/.wallpapers/active/wallpaper.jpg")
 
    -- Import components
    require("components.exit-screen")

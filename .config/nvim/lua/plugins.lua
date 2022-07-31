@@ -26,7 +26,13 @@ return require('packer').startup(function(use)
   use { 'L3MON4D3/LuaSnip' }
   use { 'jose-elias-alvarez/nvim-lsp-ts-utils' }
   use { 'williamboman/nvim-lsp-installer' }
-
+  -- Rename with visualisation
+		use({
+			"smjonas/inc-rename.nvim",
+			config = function()
+				require("inc_rename").setup()
+			end,
+		})
   -- cmp
   use {
     'hrsh7th/nvim-cmp',
