@@ -44,7 +44,7 @@ cmp.setup({
   },
   sources = {
     { name = 'nvim_lsp' },
-    { name = "nvim_lua" },
+    { name = 'nvim_lua' },
     { name = 'spell' },
     { name = 'path'},
     { name = 'buffer' },

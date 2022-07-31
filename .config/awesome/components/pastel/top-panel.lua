@@ -44,7 +44,7 @@ top_panel.create = function(s)
       {
          layout = wibox.layout.fixed.horizontal,
          -- wibox.layout.margin(wibox.widget.systray(), dpi(5), dpi(5), dpi(5), dpi(5)),
-         mail.icon,top
+         mail.icon,
          mail.widget,
          require("widgets.bluetooth"),
          require("widgets.network")(),
