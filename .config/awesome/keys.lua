@@ -32,6 +32,26 @@ local rofi_cmd = "rofi -dpi " .. dpi(80) .. " -combi-modi window,drun -show comb
 local greenclip_cmd = "rofi -dpi " .. dpi(80) .. " -modi 'clipboard:greenclip print' -show clipboard -run-command '{cmd}' "
 
 -- ===================================================================
+-- utils functions 
+-- ==================================================================
+
+local function change_theme()
+  local cmd = "\
+    cat ~/.config/awesome/rc.lua | grep -i 'local theme = themes\\[1\\]' &> /dev/null && \
+    sed -i 's/local theme = themes\\[1\\]/local theme = themes\\[2\\]/' ~/.config/awesome/rc.lua || \
+    sed -i 's/local theme = themes\\[2\\]/local theme = themes\\[1\\]/' ~/.config/awesome/rc.lua; \
+    echo 'awesome.restart()' | awesome-client; \
+  "
+  awful.spawn.with_shell(cmd)
+end
+
+local function change_wallpaper()
+  awful.spawn.with_shell("sh /home/powerleech/scripts/setRandomWallpaper.sh")
+  gears.wallpaper.maximized("/home/powerleech/.active-wallpaper/wallpaper.jpg")
+end
+
+
+-- ===================================================================
 -- Movement Functions (Called by some keybinds)
 -- ===================================================================
 
@@ -300,21 +320,14 @@ keys.globalkeys = gears.table.join(
    ),
    awful.key({modkey, "Shift"}, "w",
       function()
-        awful.spawn.with_shell("sh /home/powerleech/scripts/setRandomWallpaper.sh")
-        gears.wallpaper.maximized("/home/powerleech/.active-wallpaper/wallpaper.jpg")
+        change_wallpaper()
       end,
       {description = "change wallpaper", group = "hotkeys"}
     ),
     awful.key({modkey, "Shift"}, "t",
         function()
-          -- check if the current theme is pastel
-          local one = "cat ~/.config/awesome/rc.lua | grep -i 'local theme = themes\\[1\\]' &> /dev/null"
-          -- if the theme is pastel, change to mirage
-          local two = "sed -i 's/local theme = themes\\[1\\]/local theme = themes\\[2\\]/' ~/.config/awesome/rc.lua"
-          -- it the theme is mirage, change to pastel
-          local three = "sed -i 's/local theme = themes\\[2\\]/local theme = themes\\[1\\]/' ~/.config/awesome/rc.lua;"
-          local four = "echo 'awesome.restart()' | awesome-client;"
-          awful.spawn.with_shell(one .. " && " .. two .. " || " .. three .. four)
+          change_theme()
+          change_wallpaper()
         end,
         {description = "change theme", group = "hotkeys"}
     ),
