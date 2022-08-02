@@ -1,0 +1,5 @@
+[user]
+	email = moneyhonster@gmail.com
+	name = powerleech
+[core]
+  editor = nvim 
