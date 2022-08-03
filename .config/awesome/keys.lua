@@ -29,7 +29,7 @@ local keys = {}
 local browser      = "google-chrome-stable"
 local rofi_emoji_cmd = "rofi -dpi " .. dpi(80) .. " -show emoji -modi emoji"
 local rofi_cmd = "rofi -dpi " .. dpi(80) .. " -combi-modi window,drun -show combi"
-local greenclip_cmd = "rofi -dpi " .. dpi(80) .. " -modi 'clipboard:greenclip print' -show clipboard -run-command '{cmd}' "
+local greenclip_cmd = "rofi -theme solarized -dpi " .. dpi(80) .. " -modi 'clipboard:greenclip print' -show clipboard -run-command '{cmd}' "
 
 -- ===================================================================
 -- utils functions 
@@ -160,7 +160,6 @@ keys.globalkeys = gears.table.join(
    -- =========================================
    -- SPAWN APPLICATION KEY BINDINGS
    -- =========================================
-
    -- Spawn terminal
    awful.key({modkey}, "Return",
       function()
@@ -322,14 +321,14 @@ keys.globalkeys = gears.table.join(
       function()
         change_wallpaper()
       end,
-      {description = "change wallpaper", group = "hotkeys"}
+      {description = "change wallpaper", group = "awesome"}
     ),
     awful.key({modkey, "Shift"}, "t",
         function()
           change_theme()
           change_wallpaper()
         end,
-        {description = "change theme", group = "hotkeys"}
+        {description = "change theme", group = "awesome"}
     ),
    -- =========================================
    -- CLIENT FOCUSING

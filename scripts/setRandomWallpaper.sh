@@ -4,8 +4,8 @@ active_wallpaper_dir=~/.active-wallpaper
 get_wallpaper_dir() {
   # check if the theme is dark or light
   cat ~/.config/awesome/rc.lua | grep -i 'local theme = themes\[1\]' &> /dev/null \
-    && echo /home/powerleech/.wallpapers/light \
-    || echo /home/powerleech/.wallpapers/dark;
+    && echo /home/powerleech/Pictures/wallpapers/light \
+    || echo /home/powerleech/Pictures/wallpapers/dark;
 }
 
 get_search_string() {

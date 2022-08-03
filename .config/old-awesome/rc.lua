@@ -767,6 +767,11 @@ awful.rules.rules = {
       }, properties = { titlebars_enabled = true }
     },
 
+      {
+        rule = { class = "terminator" },
+            properties = {opacity = 0.4 }
+    },
+
     -- Set Firefox to always map on the tag named "2" on screen 1.
     -- { rule = { class = "chrome" },
     --   properties = { screen = , tag = "2" } },

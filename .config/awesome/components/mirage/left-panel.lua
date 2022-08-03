@@ -15,16 +15,10 @@ local wibox = require("wibox")
 local dpi = beautiful.xresources.apply_dpi
 local awful = require("awful")
 local gears = require("gears")
-
 local tag_list = require("widgets.tag-list")
-local separator = require("widgets.horizontal-separator")
-local folder = require("widgets.folder")
-
-local home_dir = os.getenv("HOME")
 
 -- define module table
 local left_panel = {}
-
 
 -- ===================================================================
 -- Bar Creation
@@ -67,7 +61,6 @@ left_panel.create = function(s)
       nil
    }
 
-  
    -- ===================================================================
    -- Functionality
    -- ===================================================================
