@@ -51,6 +51,7 @@ function rules.create(clientkeys, clientbuttons)
       {
          rule = {},
          properties = {
+            opacity = 0.9,
             titlebars_enabled = beautiful.titlebars_enabled,
             border_width = beautiful.border_width,
             border_color = beautiful.border_normal,

@@ -85,7 +85,9 @@ require"lspconfig".sumneko_lua.setup({
         globals = {
           "vim", --VIM
           "use", --packer key
+          -- Awesome globals
           "awesome",
+          "client",
         },
       },
       workspace = {

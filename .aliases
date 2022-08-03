@@ -1,0 +1,27 @@
+#!/bin/bash
+alias config='/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME'
+alias ls='ls --color=auto'
+alias vim='nvim'
+alias vimrc='vim ~/.config/nvim/init.lua'
+alias plugins='vim ~/.config/nvim/lua/plugins.lua'
+alias bashrc='vim ~/.bashrc'
+alias rclua='vim ~/.config/awesome/rc.lua'
+alias lspconfig='vim ~/.config/nvim/lua/lsp-config.lua'
+alias config-commit='config add -u && config commit -m'
+alias bluetooth-on='echo "power on"; echo "connect 38:18:4C:16:A4:82"; echo "connect 38:18:4C:16:A4:82" | bluetoothctl'
+alias vawesome='cd ~/.config/awesome/ && vim'
+
+# stolen from https://salferrarello.com/using-vim-view-git-commits/
+alias 'git-log'="git log --graph --pretty=format:'%h - %d %s (%cr) <%an>' | nvim -R -c 'set hidden nowrap keywordprg=:enew\ \|\ terminal\ \git\ --no-pager\ show | nnoremap q :bd!<cr>' -"
+
+# Easier navigation @mathiasbynens
+alias ..="cd .."
+alias ...="cd ../.."
+alias ....="cd ../../.."
+alias .....="cd ../../../.."
+
+# Print each PATH entry on a separate line
+alias path='echo -e ${PATH//:/\\n}'
+
+# Enable aliases to be sudo’ed
+alias sudo="sudo "

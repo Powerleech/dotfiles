@@ -23,7 +23,7 @@ local themes = {
 }
 
 -- change this number to use the corresponding theme
-local theme = themes[1]
+local theme = themes[2]
 local theme_config_dir = gears.filesystem.get_configuration_dir() .. "/configuration/" .. theme .. "/"
 
 -- define default apps (global variable so other components can access it)
@@ -32,7 +32,7 @@ apps = {
    power_manager = "", -- recommended: xfce4-power-manager
    terminal = "terminator",
    launcher = "rofi -normal-window -modi drun -show drun -theme " .. theme_config_dir .. "rofi.rasi",
-   lock = "i3lock-fancy",
+   lock = "i3lock-fancy -f Comic-Sans-M --text 'Please enter password to unlock'",
    screenshot = "scrot -e 'mv $f ~/Pictures/ 2>/dev/null'",
    filebrowser = "nautilus"
 }
