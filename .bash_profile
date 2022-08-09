@@ -5,4 +5,4 @@
 ### LET'S CALL ~/.bashrc INSTEAD
 
 # source ~/.bashrc
-if [ -f ~/.bashrc ]; then . ~/.bashrc; fi
+if [ -f ~/.bashrc ]; then . ~/.bashrc; fi
