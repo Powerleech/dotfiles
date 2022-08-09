@@ -292,22 +292,6 @@ _G.packer_plugins = {
 }
 
 time([[Defining packer_plugins]], false)
--- Config for: lightspeed.nvim
-time([[Config for lightspeed.nvim]], true)
-require"plugins.lightspeed"
-time([[Config for lightspeed.nvim]], false)
--- Config for: which-key.nvim
-time([[Config for which-key.nvim]], true)
-require"plugins.which-key"
-time([[Config for which-key.nvim]], false)
--- Config for: nvim-gps
-time([[Config for nvim-gps]], true)
-require"plugins.nvim-gps"
-time([[Config for nvim-gps]], false)
--- Config for: feline.nvim
-time([[Config for feline.nvim]], true)
-require"plugins.feline"
-time([[Config for feline.nvim]], false)
 -- Config for: nvim-neoclip.lua
 time([[Config for nvim-neoclip.lua]], true)
 require"plugins.nvim-neoclip"
@@ -320,26 +304,42 @@ time([[Config for nvim-cmp]], false)
 time([[Config for telescope.nvim]], true)
 require"plugins.telescope"
 time([[Config for telescope.nvim]], false)
--- Config for: inc-rename.nvim
-time([[Config for inc-rename.nvim]], true)
-try_loadstring("\27LJ\2\n8\0\0\3\0\3\0\0066\0\0\0'\2\1\0B\0\2\0029\0\2\0B\0\1\1K\0\1\0\nsetup\15inc_rename\frequire\0", "config", "inc-rename.nvim")
-time([[Config for inc-rename.nvim]], false)
--- Config for: gitsigns.nvim
-time([[Config for gitsigns.nvim]], true)
-require"plugins.gitsigns"
-time([[Config for gitsigns.nvim]], false)
--- Config for: nvim-dap
-time([[Config for nvim-dap]], true)
-require"plugins.nvim-dap"
-time([[Config for nvim-dap]], false)
 -- Config for: nvim-dap-virtual-text
 time([[Config for nvim-dap-virtual-text]], true)
 require"plugins.nvim-dap-virtual-text"
 time([[Config for nvim-dap-virtual-text]], false)
+-- Config for: inc-rename.nvim
+time([[Config for inc-rename.nvim]], true)
+try_loadstring("\27LJ\2\n8\0\0\3\0\3\0\0066\0\0\0'\2\1\0B\0\2\0029\0\2\0B\0\1\1K\0\1\0\nsetup\15inc_rename\frequire\0", "config", "inc-rename.nvim")
+time([[Config for inc-rename.nvim]], false)
+-- Config for: nvim-dap
+time([[Config for nvim-dap]], true)
+require"plugins.nvim-dap"
+time([[Config for nvim-dap]], false)
 -- Config for: nvim-dap-ui
 time([[Config for nvim-dap-ui]], true)
 require"plugins.nvim-dap-ui"
 time([[Config for nvim-dap-ui]], false)
+-- Config for: lightspeed.nvim
+time([[Config for lightspeed.nvim]], true)
+require"plugins.lightspeed"
+time([[Config for lightspeed.nvim]], false)
+-- Config for: feline.nvim
+time([[Config for feline.nvim]], true)
+require"plugins.feline"
+time([[Config for feline.nvim]], false)
+-- Config for: which-key.nvim
+time([[Config for which-key.nvim]], true)
+require"plugins.which-key"
+time([[Config for which-key.nvim]], false)
+-- Config for: nvim-gps
+time([[Config for nvim-gps]], true)
+require"plugins.nvim-gps"
+time([[Config for nvim-gps]], false)
+-- Config for: gitsigns.nvim
+time([[Config for gitsigns.nvim]], true)
+require"plugins.gitsigns"
+time([[Config for gitsigns.nvim]], false)
 -- Load plugins in order defined by `after`
 time([[Sequenced loading]], true)
 vim.cmd [[ packadd fzf ]]

@@ -46,7 +46,7 @@ local function change_theme()
 end
 
 local function change_wallpaper()
-  awful.spawn.with_shell("sh /home/powerleech/scripts/setRandomWallpaper.sh")
+  awful.spawn.with_shell("sh setRandomWallpaper.sh")
   gears.wallpaper.maximized("/home/powerleech/.active-wallpaper/wallpaper.jpg")
 end
 
