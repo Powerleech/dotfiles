@@ -57,7 +57,7 @@ end)
 
 --- Flash focus
 --- ~~~~~~~~~~~
-bling.module.flash_focus.enable()
+bling.module.flash_focus.disable()
 
 --- Tag preview
 --- ~~~~~~~~~~~
