@@ -11,12 +11,16 @@ local helpers = require("helpers")
 local apps = require("configuration.apps")
 local gears = require("gears")
 local lock_screen_show = require("modules.lockscreen")
+local bottom_panel = require("ui.panels.bottom-panel")
 
 --- Make key easier to call
 --- ~~~~~~~~~~~~~~~~~~~~~~~
+---@diagnostic disable-next-line: lowercase-global
 mod = "Mod4"
 alt = "Mod1"
+---@diagnostic disable-next-line: lowercase-global
 ctrl = "Control"
+---@diagnostic disable-next-line: lowercase-global
 shift = "Shift"
 
 local rofi_emoji_cmd = "rofi -dpi " .. dpi(80) .. " -show emoji -modi emoji"
@@ -236,6 +240,13 @@ awful.keyboard.append_global_keybindings({
 	awful.key({ alt }, "Print", function()
 		awful.spawn.easy_async_with_shell(apps.utils.area_screenshot, function() end)
 	end, { description = "take a area screenshot", group = "hotkeys" }),
+
+  -- hide bottom panel
+  awful.key({mod, shift}, "o", function()
+    -- local screen = awful.screen.focused()
+    screen.primary.bottom_panel.visible = not screen.primary.bottom_panel.visible
+  end
+  ),
 
 	--- Lockscreen
 	awful.key({ mod, alt }, "l", function()

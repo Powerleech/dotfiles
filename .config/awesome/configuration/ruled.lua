@@ -111,6 +111,16 @@ ruled.client.connect_signal("request::rules", function()
 		},
 	})
 
+  ruled.client.append_rule({
+    rule_any = {
+      class = {
+        "Terminator"
+      }
+    },
+    properties = {
+      opacity = 0.8
+    }
+  })
 	--- Image viewers
 	ruled.client.append_rule({
 		rule_any = {
