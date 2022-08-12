@@ -11,7 +11,6 @@ local helpers = require("helpers")
 local apps = require("configuration.apps")
 local gears = require("gears")
 local lock_screen_show = require("modules.lockscreen")
-local bottom_panel = require("ui.panels.bottom-panel")
 
 --- Make key easier to call
 --- ~~~~~~~~~~~~~~~~~~~~~~~
@@ -29,6 +28,20 @@ local greenclip_cmd = "rofi -theme solarized -dpi " .. dpi(80) .. " -modi 'clipb
 local function change_wallpaper()
   awful.spawn.with_shell("sh setRandomWallpaper.sh")
   gears.wallpaper.maximized("/home/powerleech/.active-wallpaper/wallpaper.jpg")
+end
+
+local function toggle_titlebar()
+    for s in screen do
+      local clients = s.clients
+      for _, c in pairs(clients) do
+        decorations.cycle(c)
+      end
+    end
+end
+local function toggle_bottom_panel()
+  for s in screen do
+    s.bottom_panel.visible = not s.bottom_panel.visible
+  end
 end
 
 
@@ -243,11 +256,15 @@ awful.keyboard.append_global_keybindings({
 
   -- hide bottom panel
   awful.key({mod, shift}, "o", function()
-    -- local screen = awful.screen.focused()
-    screen.primary.bottom_panel.visible = not screen.primary.bottom_panel.visible
-  end
+    toggle_bottom_panel()
+  end, { description = "Toggle bottom_panel", group = "hotkeys" }
   ),
 
+  awful.key({mod, shift}, "z", function()
+    toggle_bottom_panel()
+    toggle_titlebar()
+  end, { description = "Zen mode", group = "hotkeys" }
+  ),
 	--- Lockscreen
 	awful.key({ mod, alt }, "l", function()
 		lock_screen_show()
