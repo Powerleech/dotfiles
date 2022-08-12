@@ -1,11 +1,5 @@
 local awful = require("awful")
-
-local tostring = tostring
 local string = string
-local ipairs = ipairs
-local math = math
-local os = os
-
 local _run = {}
 
 function _run.run_once_pgrep(cmd)
