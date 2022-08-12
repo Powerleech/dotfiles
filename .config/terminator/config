@@ -1,5 +1,4 @@
 [global_config]
-  title_at_bottom = True
 [keybindings]
 [profiles]
   [[default]]
@@ -9,6 +8,7 @@
     cursor_color = "#aaaaaa"
     foreground_color = "#ffffff"
     show_titlebar = False
+    scrollbar_position = hidden
     use_system_font = False
 [layouts]
   [[default]]
