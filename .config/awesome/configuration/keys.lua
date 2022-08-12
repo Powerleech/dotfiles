@@ -25,6 +25,12 @@ shift = "Shift"
 local rofi_emoji_cmd = "rofi -dpi " .. dpi(80) .. " -show emoji -modi emoji"
 local greenclip_cmd = "rofi -theme solarized -dpi " .. dpi(80) .. " -modi 'clipboard:greenclip print' -show clipboard -run-command '{cmd}' "
 
+local function togglePicom()
+    awful.spawn.with_shell(
+       'ps cax | grep picom > /dev/null; if [ $? -eq 0 ]; then killall picom; else picom -b; fi'
+    )
+end
+
 local function change_wallpaper()
   awful.spawn.with_shell("sh setRandomWallpaper.sh")
   gears.wallpaper.maximized("/home/powerleech/.active-wallpaper/wallpaper.jpg")
@@ -195,6 +201,9 @@ awful.keyboard.append_global_keybindings({
 		bling.module.tabbed.iter()
 	end, { description = "iterate through tabbing group", group = "tabs" }),
 
+    -- toggle picom
+    awful.key({ mod, ctrl }, "p", function()  togglePicom() end,
+            {description = "Toggle Picom on/off", group = "app"}),
 	--- Hotkeys
 	--- ~~~~~~~
 	--- Music player
@@ -257,7 +266,7 @@ awful.keyboard.append_global_keybindings({
   -- hide bottom panel
   awful.key({mod, shift}, "o", function()
     toggle_bottom_panel()
-  end, { description = "Toggle bottom_panel", group = "hotkeys" }
+  end, { description = "Toggle bottom_panel", group = "layout" }
   ),
 
   awful.key({mod, shift}, "z", function()
