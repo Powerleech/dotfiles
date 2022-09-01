@@ -1,10 +1,23 @@
 -- ╭──────────────────────────────────────────────────────────╮
--- │ Setup                                                    │
+-- │ Custom Ecovim toggle function via <leader>gd             │
 -- ╰──────────────────────────────────────────────────────────╯
-require'lightspeed'.setup {}
 
-local silent = { silent = true }
+local lib = require("diffview.lib")
+local diffview = require("diffview")
 
-vim.keymap.del("n", "S", silent)
-vim.keymap.del("n", "s", silent)
-vim.keymap.set("n", "s", "<Plug>Lightspeed_omni_s", silent)
+local M = {}
+
+M.toggle = function ()
+  local view = lib.get_current_view()
+  if view == nil then
+    diffview.file_history();
+    return
+  end
+
+  if view then
+    view:close()
+    lib.dispose_view(view)
+  end
+end
+
+return M

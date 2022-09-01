@@ -3,9 +3,9 @@
 local o = vim.opt
 -- hello world 
 o.termguicolors = true -- virker det her
-o.relativenumber = true 
+o.relativenumber = true
 o.hlsearch = true
-o.hidden = true 
+o.hidden = true
 o.tabstop = 4
 o.undofile = true
 o.undodir = { vim.env.XDG_DATA_HOME or vim.fn.expand("~/.config") .. "/nvim/undo//" }
@@ -40,4 +40,6 @@ o.shiftwidth     = 2 -- set indentation width
 o.sidescrolloff  = 15 -- make scrolling better
 o.tabstop        = 2 -- tabsize
 o.timeoutlen     = 400 -- faster timeout wait time
+o.foldmethod='indent'
+o.foldlevel=99
 
