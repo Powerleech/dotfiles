@@ -12,11 +12,11 @@ get_wallpaper_dir() {
 }
 
 single_or_dual() {
-  if [[ $nmb_screens == 1 ]]; then
+  # if [[ $nmb_screens == 1 ]]; then
    echo single
-  else
-    echo dual
-  fi
+  # else
+  #   echo dual
+  # fi
 }
 
 

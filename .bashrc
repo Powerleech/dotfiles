@@ -7,7 +7,6 @@ unset file;
 source ~/.aliases
 source ~/.exports
 
-
 # nvm
 source /usr/share/bash-completion/completions/git
 if [[ -d /usr/share/nvm/init-nvm.sh ]]; then source /usr/share/nvm/init-nvm.sh; fi
@@ -18,3 +17,5 @@ eval "$(starship init bash)"
 
 # use vi bindings
 set -o vi
+. "$HOME/.cargo/env"
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion

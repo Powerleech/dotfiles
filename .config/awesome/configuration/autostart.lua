@@ -10,9 +10,11 @@ local function autostart_apps()
 	end)
 	--- Music Server
 	helpers.run.run_once_pgrep("mpd")
+	helpers.run.run_once_pgrep("setxkbmap -layout dk")
 	helpers.run.run_once_pgrep("mpDris2")
 	helpers.run.run_once_pgrep("greenclip daemon")
 	helpers.run.run_once_pgrep("systemctl --user start redshift.service")
+	helpers.run.run_once_pgrep("slack")
 	--- Polkit Agent
 	helpers.run.run_once_ps(
 		"polkit-gnome-authentication-agent-1",

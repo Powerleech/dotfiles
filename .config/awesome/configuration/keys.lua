@@ -32,8 +32,10 @@ local function togglePicom()
 end
 
 local function change_wallpaper()
-  awful.spawn.with_shell("sh setRandomWallpaper.sh")
-  gears.wallpaper.maximized("/home/powerleech/.active-wallpaper/wallpaper.jpg")
+  for s in screen do
+    awful.spawn.with_shell("sh setRandomWallpaper.sh")
+    gears.wallpaper.fit("/home/powerleech/.active-wallpaper/wallpaper.jpg", s, false, nil)
+  end
 end
 
 local function toggle_titlebar()
@@ -59,6 +61,8 @@ awful.keyboard.append_global_keybindings({
 	--- ~~~
 	-- Terminal
 	awful.key({ mod }, "Return", function()
+    -- local test = mouse.screen()
+    -- naughty.notify({text=test})
 		awful.spawn(apps.default.terminal)
 	end, { description = "open terminal", group = "app" }),
 
@@ -207,7 +211,7 @@ awful.keyboard.append_global_keybindings({
 	--- Hotkeys
 	--- ~~~~~~~
 	--- Music player
-	awful.key({ mod }, "grave", function()
+	awful.key({ mod, alt }, "m", function()
 		awful.spawn.with_shell(apps.default.music_player)
 	end, { description = "open music client", group = "hotkeys" }),
 

@@ -78,6 +78,7 @@ image_prepare() {
         SROX=$(echo $RES | cut -d'x' -f 2 | cut -d'+' -f 2) # x offset
         SROY=$(echo $RES | cut -d'x' -f 2 | cut -d'+' -f 3) # y offset
         PX=$(($SROX + $SRX/2 - $RX/2))
+        # PY=$(($SROY + $SRY/4))
         PY=$(($SROY + $SRY/2 - $RY/2))
 
         convert $image_file $overlay_image -geometry +$PX+$PY -composite -matte  "$cfg_tmpdir/lockbg.png"

@@ -5,11 +5,17 @@
     icon_bell = False
     background_darkness = 0.55
     background_type = transparent
-    cursor_color = "#aaaaaa"
+    font = Spleen Thin 14
     foreground_color = "#ffffff"
     show_titlebar = False
     scrollbar_position = hidden
     use_system_font = False
+  [[work]]
+    icon_bell = False
+    font = Spleen Thin 14
+    show_titlebar = False
+    use_system_font = False
+    copy_on_selection = True
 [layouts]
   [[default]]
     [[[child0]]]

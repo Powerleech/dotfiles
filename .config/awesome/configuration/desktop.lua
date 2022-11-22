@@ -51,7 +51,7 @@ awful.screen.connect_for_each_screen(function(s)
 		end
 
 		-- gears.wallpaper.set("#2E2E2E", s, false, nil)
-		gears.wallpaper.maximized(wallpaper, s, false, nil)
+		gears.wallpaper.fit(wallpaper, s, false, nil)
 	end
 end)
 
