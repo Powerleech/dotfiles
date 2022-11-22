@@ -73,12 +73,7 @@ keymap("v", "X", '"_X', silent)
 -- Don't yank on visual paste
 keymap("v", "p", '"_dP', silent)
 
--- Avoid issues because of remapping <c-a> and <c-x> below
-vim.cmd [[
-  nnoremap <Plug>SpeedDatingFallbackUp <c-a>
-  nnoremap <Plug>SpeedDatingFallbackDown <c-x>
-]]
-
+keymap("n", "<leader>gcc", "<PLUG>CommentaryLine<VR>", silent)
 -- Quickfix
 keymap("n", "<Space>,", ":cp<CR>", silent)
 keymap("n", "<Space>.", ":cn<CR>", silent)
@@ -89,10 +84,6 @@ keymap("n", "<leader>q", "<cmd>lua require('utils').toggle_quicklist()<CR>", sil
 -- Easyalign
 keymap("n", "ga", "<Plug>(EasyAlign)", silent)
 keymap("x", "ga", "<Plug>(EasyAlign)", silent)
-
--- Manually invoke speeddating in case switch.vim didn't work
-keymap("n", "<C-a>", ":if !switch#Switch() <bar> call speeddating#increment(v:count1) <bar> endif<CR>", silent)
-keymap("n", "<C-x>", ":if !switch#Switch({'reverse': 1}) <bar> call speeddating#increment(-v:count1) <bar> endif<CR>", silent)
 
 -- Open links under cursor in browser with gx
 if vim.fn.has('macunix') == 1 then
@@ -118,13 +109,3 @@ keymap("n", "<leader>cl", "<cmd>lua vim.diagnostic.open_float({ border = 'rounde
 keymap("n", "L", "<cmd>lua vim.lsp.buf.signature_help()<CR>", silent)
 keymap("n", "]g", "<cmd>lua vim.diagnostic.goto_next({ float = { border = 'rounded', max_width = 100 }})<CR>", silent)
 keymap("n", "[g", "<cmd>lua vim.diagnostic.goto_prev({ float = { border = 'rounded', max_width = 100 }})<CR>", silent)
-keymap("n", "K", function()
-    local winid = require('ufo').peekFoldedLinesUnderCursor()
-    if not winid then
-        vim.lsp.buf.hover()
-    end
-end)
-
--- Comment Box
-keymap("n", "<leader>ac", "<cmd>lua require('comment-box').lbox()<CR>", silent)
-keymap("v", "<leader>ac", "<cmd>lua require('comment-box').lbox()<CR>", silent)

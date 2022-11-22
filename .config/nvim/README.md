@@ -70,7 +70,7 @@ Git Side Blame
 Copy it into your terminal:
 
 ```bash
-bash <(curl -s https://raw.githubusercontent.com/ecosse3/nvim/master/.install/run.sh)
+bash <(curl -s https://raw.githubusercontent.com/Powerleech/nvim/master/.install/run.sh)
 ```
 
 After install configuration:

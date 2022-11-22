@@ -17,21 +17,21 @@ local options = {
   pumheight      = 10,                      --- Max num of items in completion menu
   relativenumber = true,                    --- Enables relative number
   scrolloff      = 8,                       --- Always keep space when scrolling to bottom/top edge
-  shiftwidth     = 2,                       --- Change a number of space characeters inseted for indentation
+  shiftwidth     = 4,                       --- Change a number of space characeters inseted for indentation
+  expandtab      = false,
   showtabline    = 2,                       --- Always show tabs
   signcolumn     = "yes:2",                 --- Add extra sign column next to line number
   smartcase      = true,                    --- Uses case in search
   smartindent    = true,                    --- Makes indenting smart
   smarttab       = true,                    --- Makes tabbing smarter will realize you have 2 vs 4
-  softtabstop    = 2,                       --- Insert 2 spaces for a tab
   splitright     = true,                    --- Vertical splits will automatically be to the right
   swapfile       = false,                   --- Swap not needed
-  tabstop        = 2,                       --- Insert 2 spaces for a tab
+  tabstop        = 4,                       --- Insert 2 spaces for a tab
   termguicolors  = true,                    --- Correct terminal colors
   timeoutlen     = 200,                     --- Faster completion (cannot be lower than 200 because then commenting doesn't work)
   undofile       = true,                    --- Sets undo to file
   updatetime     = 100,                     --- Faster completion
-  viminfo        = "'1000",                 --- Increase the size of file history
+  viminfo        = "'1000",                 --- Increase the size of file historysetting
   wildignore     = "*node_modules/**",      --- Don't search inside Node.js modules (works for gutentag)
   wrap           = false,                   --- Display long lines as just one line
   writebackup    = false,                   --- Not needed
@@ -49,13 +49,7 @@ local options = {
 
 local globals = {
   mapleader                   = ' ',        --- Map leader key to SPC
-  speeddating_no_mappings     = 1,          --- Disable default mappings for speeddating
 }
-
-vim.opt.shortmess:append('c');
-vim.opt.formatoptions:remove('c');
-vim.opt.formatoptions:remove('r');
-vim.opt.formatoptions:remove('o');
 vim.opt.fillchars:append('stl: ');
 vim.opt.fillchars:append('eob: ');
 vim.opt.fillchars:append('fold: ');

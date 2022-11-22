@@ -67,9 +67,12 @@ if typescript_ok then
       capabilities = require('lsp.servers.tsserver').capabilities,
       handlers = require('lsp.servers.tsserver').handlers,
       on_attach = require('lsp.servers.tsserver').on_attach,
+      settings = require('lsp.servers.tsserver').settings,
     }
   })
 end
+
+lspconfig.pyright.setup({})
 
 lspconfig.tailwindcss.setup {
   capabilities = require('lsp.servers.tailwindcss').capabilities,
@@ -84,6 +87,7 @@ lspconfig.cssls.setup {
   capabilities = capabilities,
   handlers = handlers,
   on_attach = require('lsp.servers.cssls').on_attach,
+  settings = require('lsp.servers.cssls').settings,
 }
 
 lspconfig.eslint.setup {

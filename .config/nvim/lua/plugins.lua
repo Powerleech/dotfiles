@@ -28,6 +28,7 @@ return require('packer').startup({
     use { 'nvim-treesitter/nvim-treesitter-textobjects', after = { 'nvim-treesitter' } }
     use { 'RRethy/nvim-treesitter-textsubjects', after = { 'nvim-treesitter' } }
     use { 'm-demare/hlargs.nvim', config = function() require('hlargs').setup({ color = "#F7768E" }) end }
+    use { 'ChristianChiarulli/nvim-gps', branch = 'text_hl', config = "require('plugins.gps')", after = 'nvim-treesitter' }
 
     -- Navigating (Telescope/Tree/Refactor)
     use { 'nvim-telescope/telescope-fzf-native.nvim', run = 'make' }
@@ -40,7 +41,6 @@ return require('packer').startup({
       }
     }
     use { 'cljoly/telescope-repo.nvim' }
-    use { 'kevinhwang91/nvim-bqf', ft = 'qf' }
     use { 'nvim-pack/nvim-spectre' }
     use { 'kyazdani42/nvim-tree.lua', config = "require('plugins.tree')" }
     use { 'gbprod/stay-in-place.nvim',
@@ -72,31 +72,25 @@ return require('packer').startup({
     use { 'onsails/lspkind-nvim' }
     use { 'folke/lsp-trouble.nvim', config = "require('plugins.trouble')" }
     use { 'nvim-lua/popup.nvim' }
-    use { 'ChristianChiarulli/nvim-gps', branch = 'text_hl', config = "require('plugins.gps')", after = 'nvim-treesitter' }
     use { 'jose-elias-alvarez/typescript.nvim' }
     use { 'axelvc/template-string.nvim', config = function() require('template-string').setup() end }
+    use { 'lvimuser/lsp-inlayhints.nvim', config = function() require('lsp-inlayhints').setup() end }
 
     -- General
     use { 'AndrewRadev/switch.vim' }
     use { 'AndrewRadev/splitjoin.vim' }
-    use { 'numToStr/Comment.nvim', config = "require('plugins.comment')" }
-    use { 'LudoPinelli/comment-box.nvim' }
+    use { 'tpope/vim-commentary' }
     use { 'akinsho/nvim-toggleterm.lua', branch = 'main', config = "require('plugins.toggleterm')" }
     use { 'tpope/vim-repeat' }
-    use { 'tpope/vim-speeddating' }
-    use { 'dhruvasagar/vim-table-mode' }
     use { 'mg979/vim-visual-multi', config = function() vim.g.VM_leader = ";" end }
-    use { 'junegunn/vim-easy-align' }
-    use { 'JoosepAlviste/nvim-ts-context-commentstring', after = 'nvim-treesitter' }
     use { 'nacro90/numb.nvim', config = "require('plugins.numb')" }
-    use { 'B4mbus/todo-comments.nvim', config = "require('plugins.todo-comments')" }
     use { 'folke/zen-mode.nvim', config = "require('plugins.zen')", disable = not EcoVim.plugins.zen.enabled }
     use { 'folke/twilight.nvim', config = function() require("twilight").setup {} end,
       disable = not EcoVim.plugins.zen.enabled }
     use { 'ggandor/lightspeed.nvim', config = "require('plugins.lightspeed')" }
     use { 'folke/which-key.nvim', config = "require('plugins.which-key')", event = "BufWinEnter" }
     use { 'ecosse3/galaxyline.nvim', after = 'nvim-gps', config = "require('plugins.galaxyline')", event = "BufWinEnter" }
-    use { 'romgrk/barbar.nvim', branch = 'feat/wipeout-cmds', requires = { 'kyazdani42/nvim-web-devicons' },
+    use { 'romgrk/barbar.nvim', requires = { 'kyazdani42/nvim-web-devicons' },
       config = "require('plugins.barbar')" }
     use { 'antoinemadec/FixCursorHold.nvim' } -- Needed while issue https://github.com/neovim/neovim/issues/12587 is still open
     use { 'rcarriga/nvim-notify' }
@@ -123,27 +117,11 @@ return require('packer').startup({
       config = "require('plugins.git.signs')",
       event = "BufRead"
     }
-    -- use { 'sindrets/diffview.nvim', config = "require('plugins.git.diffview')" }
-    use { 'akinsho/git-conflict.nvim', config = "require('plugins.git.conflict')" }
+    use { 'sindrets/diffview.nvim', config = "require('plugins.git.diffview')" }
+    use { 'akinsho/git-conflict.nvim', tag = "*", config = "require('plugins.git.conflict')" }
     use { 'ThePrimeagen/git-worktree.nvim', config = "require('plugins.git.worktree')" }
     use { 'kdheepak/lazygit.nvim' }
 
-    -- Testing
-    use {
-      'rcarriga/neotest',
-      requires = {
-        'nvim-lua/plenary.nvim',
-        'nvim-treesitter/nvim-treesitter',
-        'antoinemadec/FixCursorHold.nvim',
-        'haydenmeade/neotest-jest'
-      },
-      config = "require('plugins.neotest')"
-    }
-
-    -- DAP
-    use { 'theHamsta/nvim-dap-virtual-text' }
-    use { 'rcarriga/nvim-dap-ui' }
-    use { 'mfussenegger/nvim-dap', config = "require('plugins.dap')" }
 
     if packer_bootstrap then
       require('packer').sync()
