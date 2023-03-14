@@ -10,7 +10,8 @@ alias lspconfig='vim ~/.config/nvim/lua/lsp-config.lua'
 alias config-commit='config add -u && config commit -m'
 alias bluetooth-on='echo "power on"; echo "connect 38:18:4C:16:A4:82"; echo "connect 38:18:4C:16:A4:82" | bluetoothctl'
 alias vawesome='cd ~/.config/awesome/ && vim'
-alias gosib='cd && cd dev/sibilus'
+alias gosib='cd && cd dev/sibilus && export AWS_PROFILE=sibilus-dev'
+alias gokon='cd && cd dev/konference_dk && export AWS_PROFILE=konferencedk'
 
 # stolen from https://salferrarello.com/using-vim-view-git-commits/
 alias 'git-log'="git log --graph --pretty=format:'%h - %d %s (%cr) <%an>' | nvim -R -c 'set hidden nowrap keywordprg=:enew\ \|\ terminal\ \git\ --no-pager\ show | nnoremap q :bd!<cr>' -"
