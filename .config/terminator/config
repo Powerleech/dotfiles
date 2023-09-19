@@ -5,7 +5,7 @@
     icon_bell = False
     background_darkness = 0.55
     background_type = transparent
-    cursor_color = "#aaaaaa"
+    font = NotoMono Nerd Font Mono 14
     foreground_color = "#ffffff"
     show_titlebar = False
     scrollbar_position = hidden

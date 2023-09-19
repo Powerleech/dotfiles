@@ -27,4 +27,9 @@ alias path='echo -e ${PATH//:/\\n}'
 # Enable aliases to be sudo’ed
 alias sudo="sudo "
 
-alias gosib="cd && cd dev/sibilus"
+alias gosib="cd && cd dev/sibilus && export AWS_PROFILE=sibilus-dev"
+alias gokon="cd && cd dev/konference_dk && export AWS_PROFILE=konferencedk"
+alias godagbog="cd && cd dev/dagens-bog-v2 && export AWS_PROFILE=zevio"
+alias gokofa="cd && cd dev/kofa && export AWS_PROFILE=zevio"
+alias goniabslis="cd && cd dev/niabslis && export AWS_PROFILE=zevio"
+

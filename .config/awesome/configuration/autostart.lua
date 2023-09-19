@@ -13,6 +13,7 @@ local function autostart_apps()
 	helpers.run.run_once_pgrep("mpDris2")
 	helpers.run.run_once_pgrep("greenclip daemon")
 	helpers.run.run_once_pgrep("systemctl --user start redshift.service")
+	helpers.run.run_once_pgrep("sh ~/bin/setRandomWallpaper.sh")
 	--- Polkit Agent
 	helpers.run.run_once_ps(
 		"polkit-gnome-authentication-agent-1",
