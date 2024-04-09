@@ -3,3 +3,6 @@
 	name = powerleech
 [core]
   editor = nvim 
+
+[url "git@github.com:Opus-EDB/opus-go-logger.git"]
+ insteadOf = https://github.com/Opus-EDB/opus-go-logger

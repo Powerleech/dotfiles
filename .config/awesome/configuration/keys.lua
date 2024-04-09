@@ -32,8 +32,10 @@ local function togglePicom()
 end
 
 local function change_wallpaper()
-  awful.spawn.with_shell("sh setRandomWallpaper.sh")
-  gears.wallpaper.maximized("/home/powerleech/.active-wallpaper/wallpaper.jpg")
+  for s = 1, screen.count() do
+    awful.spawn.with_shell("sh setRandomWallpaper.sh")
+    gears.wallpaper.maximized("/home/powerleech/.active-wallpaper/wallpaper.jpg", s)
+  end
 end
 
 local function toggle_titlebar()
