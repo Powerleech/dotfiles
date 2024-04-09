@@ -1,7 +1,7 @@
 #!/bin/bash
-alias config='/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME'
+alias dotfiles='/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME'
 alias ls='ls --color=auto'
-alias vim='NVIM_APPNAME="$(cat ~/.last_nvim_config)" nvim'
+# alias vim='NVIM_APPNAME="$(cat ~/.last_nvim_config)" nvim'
 alias plugins='vim ~/.config/nvim/lua/plugins.lua'
 alias bashrc='vim ~/.bashrc'
 alias rclua='vim ~/.config/awesome/rc.lua'

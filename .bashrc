@@ -35,8 +35,6 @@ PROMPT_COMMAND="${PROMPT_COMMAND:+$PROMPT_COMMAND$'\n'}history -a; history -c; h
 
 # use vi bindings
 set -o vi
-. "$HOME/.cargo/env"
-[ -f /opt/miniconda3/etc/profile.d/conda.sh ] && source /opt/miniconda3/etc/profile.d/conda.sh
 
 alias nvim-astro="NVIM_APPNAME=AstroNvim nvim"
 alias nvim-nvchad="NVIM_APPNAME=NvChadNvim nvim"
